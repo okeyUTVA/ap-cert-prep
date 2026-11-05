@@ -37,7 +37,7 @@
                         🧬 Medical A&P Certification Prep Center
                     </h1>
                     <p class="text-indigo-100 text-sm sm:text-base mt-1 max-w-2xl">
-                        Self-Paced • 15 Units • Interactive Visual Diagrams & State Exam Simulator
+                        Self-Paced • 15 Units • Visual Diagram Labeller & State Exam Simulator
                     </p>
                 </div>
                 <div class="flex items-center gap-3 self-start md:self-auto bg-slate-800/60 p-3 rounded-xl border border-slate-700/60 backdrop-blur">
@@ -66,7 +66,7 @@
                     <i class="fa-solid fa-book-bookmark mr-2"></i>Standards Dictionary
                 </button>
                 <button onclick="switchTab('diagrams')" id="tab-diagrams" class="nav-btn px-4 py-2.5 rounded-lg text-sm font-semibold whitespace-nowrap transition-all text-slate-600 hover:bg-slate-100">
-                    <i class="fa-solid fa-diagram-project mr-2"></i>Interactive Diagrams
+                    <i class="fa-solid fa-diagram-project mr-2"></i>Visual Diagram Labeller
                 </button>
                 <button onclick="switchTab('flashcards')" id="tab-flashcards" class="nav-btn px-4 py-2.5 rounded-lg text-sm font-semibold whitespace-nowrap transition-all text-slate-600 hover:bg-slate-100">
                     <i class="fa-solid fa-layer-group mr-2"></i>Flashcard Decks
@@ -107,12 +107,12 @@
             </div>
         </section>
 
-        <!-- SECTION 2: INTERACTIVE DIAGRAMS TOOL -->
+        <!-- SECTION 2: VISUAL DIAGRAM LABELLER -->
         <section id="section-diagrams" class="tab-content hidden space-y-6">
             <div class="bg-white p-6 rounded-2xl shadow-sm border border-slate-200 flex flex-col sm:flex-row sm:items-center justify-between gap-4">
                 <div>
-                    <h2 class="text-xl font-bold text-slate-900">Visual Diagram & Structure Labeler</h2>
-                    <p class="text-slate-500 text-sm">Click interactive markers on diagrams to practice organ locations, body cavities, and anatomical structures.</p>
+                    <h2 class="text-xl font-bold text-slate-900">Visual Diagram & Structure Labeller</h2>
+                    <p class="text-slate-500 text-sm">Click hotspot pins on anatomical diagrams to inspect organs, body cavities, and microanatomy.</p>
                 </div>
                 <select id="diagramSelect" onchange="loadDiagram()" class="px-4 py-2.5 border border-indigo-200 bg-indigo-50 text-indigo-900 font-semibold rounded-xl focus:ring-2 focus:ring-indigo-500 text-sm">
                     <option value="quadrants">Abdominal Quadrants & Organs (Strand 1)</option>
@@ -123,22 +123,22 @@
             </div>
 
             <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
-                <!-- Diagram Display Box -->
-                <div class="lg:col-span-2 bg-slate-900 rounded-2xl p-6 text-white relative flex flex-col items-center justify-center min-h-[420px] shadow-xl overflow-hidden" id="diagramCanvas">
-                    <!-- Interactive Markers populated via JS -->
+                <!-- Diagram Display Canvas with Image Background -->
+                <div class="lg:col-span-2 bg-slate-900 rounded-2xl p-4 text-white relative flex items-center justify-center min-h-[440px] shadow-xl overflow-hidden border border-slate-700" id="diagramCanvas">
+                    <!-- Dynamic Image & Pins -->
                 </div>
 
                 <!-- Info Sidebar -->
                 <div class="bg-white p-6 rounded-2xl border border-slate-200 shadow-sm flex flex-col justify-between space-y-4">
                     <div>
                         <span class="text-xs font-bold uppercase tracking-wider text-indigo-600 bg-indigo-50 px-3 py-1 rounded-full" id="diagStrandLabel">Strand 1</span>
-                        <h3 class="text-2xl font-extrabold text-slate-900 mt-3" id="diagTitle">Select a Marker</h3>
-                        <p class="text-sm text-slate-600 mt-2 leading-relaxed" id="diagDescription">Click any numbered hotspot pin on the diagram to identify the organ structure, cavity, or physiological function.</p>
+                        <h3 class="text-2xl font-extrabold text-slate-900 mt-3" id="diagTitle">Select a Pin</h3>
+                        <p class="text-sm text-slate-600 mt-2 leading-relaxed" id="diagDescription">Click any numbered hotspot pin overlaid on the diagram image to view anatomical structure names and functions.</p>
                     </div>
 
                     <div class="bg-slate-50 p-4 rounded-xl border border-slate-200 text-xs text-slate-500 space-y-1">
-                        <strong class="text-slate-800 block"><i class="fa-solid fa-lightbulb text-amber-500 mr-1.5"></i>Exam Tip:</strong>
-                        <span id="diagExamTip">State certification questions frequently ask which organs reside in specific quadrants or cavities.</span>
+                        <strong class="text-slate-800 block"><i class="fa-solid fa-lightbulb text-amber-500 mr-1.5"></i>State Exam Focus:</strong>
+                        <span id="diagExamTip">Pay close attention to organ placements across quadrants and internal heart valve pathways.</span>
                     </div>
                 </div>
             </div>
@@ -271,7 +271,7 @@
     <!-- FOOTER -->
     <footer class="bg-slate-900 text-slate-400 text-xs border-t border-slate-800 py-6 mt-12">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center space-y-2">
-            <p>Medical Anatomy & Physiology State Certification Exam Prep Center</p>
+            <p>Medical Anatomy & Physiology State Certification Prep Center</p>
             <p class="text-slate-500">Designed for High School CTE Students.</p>
         </div>
     </footer>
@@ -287,13 +287,13 @@
                 terms: [
                     { t: "Anatomy vs Physiology", d: "Anatomy is the study of structure/shape; Physiology is the study of how body parts function." },
                     { t: "6 Levels of Structural Organization", d: "Chemical -> Cellular -> Tissue -> Organ -> Organ System -> Organism." },
-                    { t: "Anabolic vs Catabolic", d: "Anabolism builds larger molecules from smaller ones (requires energy); Catabolism breaks down molecules (releases energy)." },
+                    { t: "Anabolic vs Catabolic", d: "Anabolism builds larger molecules from smaller ones; Catabolism breaks down molecules." },
                     { t: "Body Cavities - Dorsal", d: "Cranial cavity (Brain) and Vertebral/Spinal cavity (Spinal Cord)." },
-                    { t: "Body Cavities - Ventral", d: "Thoracic cavity (Mediastinum, Pericardial, Pleural) and Abdominopelvic cavity (Abdominal & Pelvic)." },
+                    { t: "Body Cavities - Ventral", d: "Thoracic cavity (Mediastinum, Pericardial, Pleural) and Abdominopelvic cavity." },
                     { t: "Mediastinum", d: "Central compartment of thoracic cavity containing heart, bronchi, esophagus, and thymus." },
-                    { t: "Abdominal Quadrant Organs", d: "RUQ (Liver, Gallbladder, R Kidney); LUQ (Stomach, Spleen, L Kidney, Pancreas); RLQ (Appendix, Cecum, R Ovary); LLQ (L Ovary, Sigmoid Colon)." },
-                    { t: "Negative Feedback", d: "Counteracts a change to return body to set point (e.g., blood pressure, blood glucose, thermoregulation)." },
-                    { t: "Positive Feedback", d: "Amplifies a change away from set point (e.g., childbirth, blood clotting, breastfeeding)." }
+                    { t: "Abdominal Quadrant Organs", d: "RUQ (Liver, Gallbladder); LUQ (Stomach, Spleen); RLQ (Appendix, Cecum); LLQ (Sigmoid Colon)." },
+                    { t: "Negative Feedback", d: "Counteracts a change to return body to set point (e.g., blood pressure, blood glucose)." },
+                    { t: "Positive Feedback", d: "Amplifies a change away from set point (e.g., childbirth, blood clotting)." }
                 ]
             },
             {
@@ -302,7 +302,6 @@
                 desc: "Major elements (C, H, O, N), chemical bonds, properties of water, pH scale, macromolecules, and ATP respiration.",
                 terms: [
                     { t: "Major Body Elements", d: "Carbon (C), Hydrogen (H), Oxygen (O), Nitrogen (N) make up ~96% of body mass." },
-                    { t: "Ionic vs Covalent Bonds", d: "Ionic bonds transfer electrons (forming cations + and anions -); Covalent bonds share electrons." },
                     { t: "Blood pH Range", d: "Normal human blood pH is strictly maintained between 7.35 and 7.45." },
                     { t: "Cellular Respiration", d: "Converts glucose & oxygen into energy: ATP -> ADP + P + ENERGY." }
                 ]
@@ -315,7 +314,7 @@
                     { t: "Mitochondria", d: "Powerhouse of the cell; site of ATP production via cellular respiration." },
                     { t: "Lysosomes", d: "Organelles containing digestive enzymes to break down waste/cellular debris." },
                     { t: "Passive Transport", d: "No ATP required: Simple diffusion, Facilitated diffusion, Osmosis, Filtration." },
-                    { t: "Active Transport", d: "Requires ATP: Endocytosis (phagocytosis/pinocytosis), Exocytosis, Sodium/Potassium Pump." }
+                    { t: "Active Transport", d: "Requires ATP: Endocytosis, Exocytosis, Sodium/Potassium Pump." }
                 ]
             },
             {
@@ -323,9 +322,9 @@
                 title: "Strand 4: Histology & Integumentary System",
                 desc: "4 primary tissues, serous/visceral membranes, skin layers, skin cancers, and burn classifications.",
                 terms: [
-                    { t: "4 Primary Tissues", d: "Epithelial (covering/lining), Connective (support/protection), Muscular (movement), Nervous (communication)." },
-                    { t: "Visceral vs Parietal Membranes", d: "Visceral membrane covers the organ directly; Parietal membrane lines the cavity wall." },
-                    { t: "Skin Layers", d: "Epidermis (avascular outer layer), Dermis (vascular true skin), Subcutaneous/Hypodermis (adipose)." }
+                    { t: "4 Primary Tissues", d: "Epithelial (covering), Connective (support), Muscular (movement), Nervous (communication)." },
+                    { t: "Visceral vs Parietal Membranes", d: "Visceral membrane covers organ directly; Parietal membrane lines cavity wall." },
+                    { t: "Skin Layers", d: "Epidermis (outer), Dermis (vascular true skin), Subcutaneous/Hypodermis (fat)." }
                 ]
             },
             {
@@ -333,8 +332,8 @@
                 title: "Strand 5: Skeletal System",
                 desc: "Bone functions, ossification cells, long bone structure, axial/appendicular bones, joints, and spinal curves.",
                 terms: [
-                    { t: "Bone Cells", d: "Osteoblasts (build bone), Osteocytes (mature bone cells), Osteoclasts (break down/absorb bone)." },
-                    { t: "Axial vs Appendicular Skeleton", d: "Axial (Skull, Vertebrae, Ribs, Sternum, Hyoid); Appendicular (Girdles, Arms, Legs, Hands, Feet)." },
+                    { t: "Bone Cells", d: "Osteoblasts (build bone), Osteocytes (mature bone), Osteoclasts (absorb bone)." },
+                    { t: "Axial vs Appendicular", d: "Axial (Skull, Vertebrae, Ribs, Sternum); Appendicular (Girdles, Arms, Legs)." },
                     { t: "Ligament vs Tendon", d: "Ligaments connect bone to bone; Tendons connect muscle to bone." }
                 ]
             },
@@ -344,8 +343,8 @@
                 desc: "Sarcomere sliding filament theory, neuromuscular junction (ACh), muscle names, and strain vs sprain.",
                 terms: [
                     { t: "Sarcomere Proteins", d: "Actin (thin filament) and Myosin (thick filament) slide past each other during contraction." },
-                    { t: "Neuromuscular Junction", d: "Action potential triggers release of Acetylcholine (ACh) neurotransmitter to stimulate contraction." },
-                    { t: "Origin vs Insertion", d: "Origin is attached to stationary bone; Insertion is attached to the movable bone." }
+                    { t: "Neuromuscular Junction", d: "Action potential triggers release of Acetylcholine (ACh) neurotransmitter." },
+                    { t: "Origin vs Insertion", d: "Origin attached to stationary bone; Insertion attached to movable bone." }
                 ]
             },
             {
@@ -353,9 +352,9 @@
                 title: "Strand 7: Nervous System & Special Senses",
                 desc: "CNS vs PNS, glial cells, brain regions, reflex arc, eye tuning, ear ossicles, and sense disorders.",
                 terms: [
-                    { t: "Brain Regions", d: "Cerebrum (higher thought), Cerebellum (balance/coordination), Brain Stem (Medulla/Pons/Midbrain)." },
-                    { t: "Meninges Layers", d: "Dura mater (outer tough), Arachnoid mater (middle web), Pia mater (inner delicate layer)." },
-                    { t: "Ear Ossicles", d: "Malleus (hammer) -> Incus (anvil) -> Stapes (stirrup) in the tympanic middle ear cavity." }
+                    { t: "Brain Regions", d: "Cerebrum (higher thought), Cerebellum (balance), Brain Stem (Medulla/Pons/Midbrain)." },
+                    { t: "Meninges Layers", d: "Dura mater (outer tough), Arachnoid mater (middle web), Pia mater (inner delicate)." },
+                    { t: "Ear Ossicles", d: "Malleus (hammer) -> Incus (anvil) -> Stapes (stirrup) in middle ear." }
                 ]
             },
             {
@@ -363,8 +362,8 @@
                 title: "Strand 8: Endocrine System",
                 desc: "Hormones, pituitary gland (HGH, ADH, OT), adrenal hormones, pancreas (insulin/glucagon), and disorders.",
                 terms: [
-                    { t: "Pituitary Gland (Sella Turcica)", d: "Anterior: HGH, TSH, ACTH; Posterior: ADH (water retention), Oxytocin (uterine contraction)." },
-                    { t: "Pancreatic Islet Cells", d: "Beta cells release Insulin (lowers blood sugar); Alpha cells release Glucagon (raises blood sugar)." }
+                    { t: "Pituitary Gland", d: "Anterior: HGH, TSH, ACTH; Posterior: ADH (water retention), Oxytocin (uterine contraction)." },
+                    { t: "Pancreatic Islet Cells", d: "Beta cells release Insulin (lowers blood sugar); Alpha cells release Glucagon." }
                 ]
             },
             {
@@ -372,8 +371,8 @@
                 title: "Strand 9: Blood",
                 desc: "Formed elements, Hemostasis steps, ABO blood typing, and anemias.",
                 terms: [
-                    { t: "3 Steps of Hemostasis", d: "1. Vascular Spasm -> 2. Platelet Plug Formation -> 3. Coagulation (clotting cascade)." },
-                    { t: "Thrombus vs Embolus", d: "Thrombus is a stationary blood clot; Embolus is a free-floating clot." }
+                    { t: "3 Steps of Hemostasis", d: "1. Vascular Spasm -> 2. Platelet Plug Formation -> 3. Coagulation." },
+                    { t: "Thrombus vs Embolus", d: "Thrombus is a stationary clot; Embolus is a free-floating clot." }
                 ]
             },
             {
@@ -381,8 +380,8 @@
                 title: "Strand 10: Lymphatic & Immune System",
                 desc: "Lymph organs, T & B lymphocytes, active/passive immunity.",
                 terms: [
-                    { t: "T-Cells vs B-Cells", d: "B-cells produce antibodies (humoral); T-cells directly attack infected cells (cell-mediated)." },
-                    { t: "Natural vs Artificial Immunity", d: "Natural (exposure to pathogen/maternal milk); Artificial (vaccine or antitoxin injection)." }
+                    { t: "T-Cells vs B-Cells", d: "B-cells produce antibodies (humoral); T-cells directly attack infected cells." },
+                    { t: "Natural vs Artificial Immunity", d: "Natural (exposure/maternal milk); Artificial (vaccine or antitoxin)." }
                 ]
             },
             {
@@ -390,7 +389,7 @@
                 title: "Strand 11: Cardiovascular System",
                 desc: "Heart layers, chambers, valves, pathway of blood flow, cardiac conduction, and blood pressure.",
                 terms: [
-                    { t: "Heart Wall Layers", d: "Epicardium (Visceral pericardium) -> Myocardium (cardiac muscle) -> Endocardium (inner lining)." },
+                    { t: "Heart Wall Layers", d: "Epicardium -> Myocardium (cardiac muscle) -> Endocardium (inner lining)." },
                     { t: "Cardiac Conduction Pathway", d: "SA Node (pacemaker) -> AV Node -> Bundle of His -> Bundle Branches -> Purkinje Fibers." }
                 ]
             },
@@ -432,55 +431,59 @@
             }
         ];
 
-        // DIAGRAM DATASETS FOR INTERACTIVE LABELLER TOOL
+        // DIAGRAM DATASETS WITH IMAGE BACKDROPS
         const diagramData = {
             quadrants: {
                 strand: "Strand 1",
-                title: "Abdominal Quadrants & Organ Locations",
+                title: "Abdominal Quadrants & Organs",
                 tip: "State exams often ask which quadrant holds the appendix (RLQ), spleen (LUQ), or gallbladder (RUQ).",
+                img: "https://encrypted-tbn3.gstatic.com/licensed-image?q=tbn:ANd9GcSqLxhjaY0u0RdRqWbtMpqyh7RkwcU6DIUOYGyD9fcw7o0MyuIJbDXzg6b_DijlHH-_z5LecAjN62w8Kno",
                 markers: [
-                    { id: 1, top: "25%", left: "30%", name: "Right Upper Quadrant (RUQ)", desc: "Contains the Liver, Gallbladder, and Right Kidney." },
-                    { id: 2, top: "25%", left: "70%", name: "Left Upper Quadrant (LUQ)", desc: "Contains the Stomach, Spleen, Left Kidney, and Pancreas." },
-                    { id: 3, top: "65%", left: "30%", name: "Right Lower Quadrant (RLQ)", desc: "Contains the Cecum, Appendix, and Right Ovary." },
-                    { id: 4, top: "65%", left: "70%", name: "Left Lower Quadrant (LLQ)", desc: "Contains the Left Ovary and Sigmoid Colon." }
+                    { id: 1, top: "40%", left: "40%", name: "Right Upper Quadrant (RUQ)", desc: "Contains Liver, Gallbladder, and Right Kidney." },
+                    { id: 2, top: "40%", left: "60%", name: "Left Upper Quadrant (LUQ)", desc: "Contains Stomach, Spleen, Left Kidney, and Pancreas." },
+                    { id: 3, top: "70%", left: "40%", name: "Right Lower Quadrant (RLQ)", desc: "Contains Cecum, Appendix, and Right Ovary." },
+                    { id: 4, top: "70%", left: "60%", name: "Left Lower Quadrant (LLQ)", desc: "Contains Left Ovary and Sigmoid Colon." }
                 ]
             },
             cavities: {
                 strand: "Strand 1",
                 title: "Body Cavities & Internal Membranes",
                 tip: "Dorsal cavity includes Cranial & Vertebral cavities. Ventral includes Thoracic & Abdominopelvic.",
+                img: "https://encrypted-tbn1.gstatic.com/licensed-image?q=tbn:ANd9GcQP2WShbpYkXS6weBis-VlgmgHehdH5P_kUHpD_z2hD27vgmh2v6nSlDRfMP6uI5HO8L4jSUtaas1EuOCQ",
                 markers: [
-                    { id: 1, top: "15%", left: "50%", name: "Cranial Cavity", desc: "Enclosed by skull bones; houses the Brain (Dorsal cavity)." },
-                    { id: 2, top: "35%", left: "50%", name: "Thoracic Cavity / Mediastinum", desc: "Contains Pleural cavities (Lungs), Pericardial cavity (Heart), Esophagus, and Thymus." },
-                    { id: 3, top: "60%", left: "50%", name: "Abdominal Cavity", desc: "Contains Stomach, Liver, Spleen, Kidneys, Pancreas, and Intestines." },
-                    { id: 4, top: "85%", left: "50%", name: "Pelvic Cavity", desc: "Contains Urinary Bladder, Reproductive organs, and Rectum." }
+                    { id: 1, top: "15%", left: "48%", name: "Cranial Cavity", desc: "Houses the Brain (Dorsal cavity)." },
+                    { id: 2, top: "35%", left: "48%", name: "Thoracic Cavity / Mediastinum", desc: "Contains Lungs (Pleural), Heart (Pericardial), Esophagus, and Thymus." },
+                    { id: 3, top: "60%", left: "48%", name: "Abdominal Cavity", desc: "Contains Stomach, Liver, Spleen, Kidneys, Pancreas, and Intestines." },
+                    { id: 4, top: "82%", left: "48%", name: "Pelvic Cavity", desc: "Contains Urinary Bladder, Reproductive organs, and Rectum." }
                 ]
             },
             heart: {
                 strand: "Strand 11",
-                title: "Heart Chambers & Conduction Pathway",
+                title: "Heart Chambers & Blood Flow",
                 tip: "Deoxygenated blood enters Right Atrium via Superior/Inferior Vena Cava -> Tricuspid -> R Ventricle.",
+                img: "https://encrypted-tbn1.gstatic.com/licensed-image?q=tbn:ANd9GcS0IkOOV-vma0ypAdk8OfmTxS2NZZnqhPidOuG0cF28rslgyN06HcRp_JbqFMV_McGFFbrV25BKfgt9Llc",
                 markers: [
-                    { id: 1, top: "25%", left: "35%", name: "Right Atrium & SA Node", desc: "Receives deoxygenated blood; contains SA Node (natural pacemaker)." },
-                    { id: 2, top: "65%", left: "35%", name: "Right Ventricle", desc: "Pumps deoxygenated blood through Pulmonary Semilunar Valve to lungs." },
-                    { id: 3, top: "25%", left: "65%", name: "Left Atrium", desc: "Receives oxygenated blood from pulmonary veins." },
-                    { id: 4, top: "65%", left: "65%", name: "Left Ventricle & Myocardium", desc: "Thickest muscular chamber; pumps oxygenated blood out Aorta to body." }
+                    { id: 1, top: "45%", left: "30%", name: "Right Atrium & SA Node", desc: "Receives deoxygenated blood; contains SA Node (pacemaker)." },
+                    { id: 2, top: "70%", left: "35%", name: "Right Ventricle", desc: "Pumps deoxygenated blood through Pulmonary Semilunar Valve to lungs." },
+                    { id: 3, top: "40%", left: "70%", name: "Left Atrium", desc: "Receives oxygenated blood from pulmonary veins." },
+                    { id: 4, top: "70%", left: "65%", name: "Left Ventricle & Myocardium", desc: "Thickest muscular chamber; pumps oxygenated blood out Aorta to body." }
                 ]
             },
             nephron: {
                 strand: "Strand 14",
-                title: "Nephron Microanatomy & Urine Formation",
+                title: "Nephron Microanatomy",
                 tip: "Filtration occurs in Glomerulus; Reabsorption in Proximal Tubule & Loop of Henle; Secretion in Distal Tubule.",
+                img: "https://encrypted-tbn3.gstatic.com/licensed-image?q=tbn:ANd9GcTdiVJADgsXh4UagaNaDcdTa1vhLN-NA09p26N-h6e3iC8LynnC9J_PkH-FaXowHm-2PRPLm2TGKKaitpw",
                 markers: [
-                    { id: 1, top: "20%", left: "25%", name: "Glomerulus & Bowman's Capsule", desc: "Site of Glomerular Filtration under pressure." },
-                    { id: 2, top: "35%", left: "45%", name: "Proximal Convoluted Tubule", desc: "Site of bulk Tubular Reabsorption (glucose, amino acids, water)." },
-                    { t: 3, top: "75%", left: "50%", name: "Loop of Henle (Nephron Loop)", desc: "Descending limb reabsorbs water; Ascending limb reabsorbs solutes/salts." },
+                    { id: 1, top: "25%", left: "35%", name: "Glomerulus & Bowman's Capsule", desc: "Site of Glomerular Filtration under blood pressure." },
+                    { id: 2, top: "35%", left: "55%", name: "Proximal Convoluted Tubule", desc: "Site of bulk Tubular Reabsorption (glucose, amino acids, water)." },
+                    { id: 3, top: "75%", left: "50%", name: "Loop of Henle (Nephron Loop)", desc: "Descending limb reabsorbs water; Ascending limb reabsorbs salts." },
                     { id: 4, top: "35%", left: "75%", name: "Distal Tubule & Collecting Duct", desc: "Target of ADH; Tubular Secretion occurs here to form final urine." }
                 ]
             }
         };
 
-        // 71 STATE EXAM QUESTIONS (WEIGHTED)
+        // 71 STATE EXAM QUESTIONS
         const apExamQuestions = [
             // Strand 1 (7 Qs)
             { q: "Which level of structural organization consists of groups of similar cells working together to perform a specific function?", opts: ["Organ level", "Tissue level", "Cellular level", "System level"], ans: 1, strand: "Strand 1" },
@@ -706,22 +709,25 @@
             renderDictionary();
         }
 
-        // INTERACTIVE DIAGRAMS LOGIC
+        // VISUAL DIAGRAM LABELLER WITH IMAGE BACKDROPS
         function loadDiagram() {
             const key = document.getElementById('diagramSelect').value;
             const data = diagramData[key];
 
             document.getElementById('diagStrandLabel').textContent = data.strand;
             document.getElementById('diagTitle').textContent = data.title;
-            document.getElementById('diagDescription').textContent = "Click any marker pin on the diagram to inspect its anatomy.";
+            document.getElementById('diagDescription').textContent = "Click any marker pin on the image to inspect anatomical structures.";
             document.getElementById('diagExamTip').textContent = data.tip;
 
             const canvas = document.getElementById('diagramCanvas');
-            canvas.innerHTML = `<div class="absolute text-slate-700 text-xs font-bold uppercase tracking-widest pointer-events-none">${data.title}</div>`;
+            canvas.innerHTML = `
+                <img src="${data.img}" alt="${data.title}" class="max-h-[380px] w-auto object-contain rounded-xl opacity-80" />
+                <div class="absolute top-3 left-3 bg-slate-900/80 backdrop-blur px-3 py-1 rounded-full text-xs font-bold text-indigo-300 border border-slate-700">${data.title}</div>
+            `;
 
             data.markers.forEach(m => {
                 const btn = document.createElement('button');
-                btn.className = "absolute w-9 h-9 rounded-full bg-indigo-600 border-2 border-white text-white font-bold text-sm flex items-center justify-center shadow-lg hover:scale-110 hover:bg-indigo-500 transition-all z-10 focus:ring-4 focus:ring-indigo-400/50";
+                btn.className = "absolute w-9 h-9 rounded-full bg-indigo-600 border-2 border-white text-white font-bold text-sm flex items-center justify-center shadow-xl hover:scale-125 hover:bg-rose-500 transition-all z-10 focus:ring-4 focus:ring-indigo-400/50";
                 btn.style.top = m.top;
                 btn.style.left = m.left;
                 btn.textContent = m.id;
