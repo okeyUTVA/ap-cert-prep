@@ -121,19 +121,19 @@
                     <option value="longbone">Strand 5: Long Bone Anatomical Features</option>
                     <option value="sarcomere">Strand 6: Sarcomere Microanatomy</option>
                     <option value="brain">Strand 7: Central Brain Structures</option>
-                    <option value="eye">Strand 7: Principle Eye Tunics & Optics</option>
+                    <option value="eye">Strand 7: Eye Optics & Structure</option>
                     <option value="ear">Strand 7: Ear Cavities & Ossicles</option>
                     <option value="endocrine">Strand 8: Endocrine Glands</option>
                     <option value="heart">Strand 11: Heart Chambers & Flow</option>
                     <option value="respiratory">Strand 12: Respiratory Airway Tract</option>
-                    <option value="digestive">Strand 13: Digestive Canal & Accessory Organs</option>
+                    <option value="digestive">Strand 13: Digestive Canal & Organs</option>
                     <option value="nephron">Strand 14: Nephron Microanatomy</option>
-                    <option value="uterus">Strand 15: Uterine & Female Reproductive Anatomy</option>
+                    <option value="uterus">Strand 15: Reproductive System</option>
                 </select>
             </div>
 
             <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
-                <!-- Diagram Display Canvas -->
+                <!-- Diagram Canvas -->
                 <div class="lg:col-span-2 bg-slate-900 rounded-2xl p-4 text-white relative flex items-center justify-center min-h-[440px] shadow-xl overflow-hidden border border-slate-700" id="diagramCanvas">
                     <!-- Dynamic Image & Pins -->
                 </div>
@@ -439,16 +439,16 @@
             }
         ];
 
-        // FULL SYSTEM DIAGRAM DATASETS WITH HIGH-RESOLUTION IMAGES
+        // COMPLETE VISUAL DIAGRAM DATASETS WITH RELIABLE OPEN-SOURCE SVG ILLUSTRATIONS
         const diagramData = {
             quadrants: {
                 strand: "Strand 1",
                 title: "Abdominal Quadrants & Organs",
                 tip: "State exams ask which quadrant holds the appendix (RLQ), spleen (LUQ), or gallbladder (RUQ).",
-                img: "https://encrypted-tbn3.gstatic.com/licensed-image?q=tbn:ANd9GcSqLxhjaY0u0RdRqWbtMpqyh7RkwcU6DIUOYGyD9fcw7o0MyuIJbDXzg6b_DijlHH-_z5LecAjN62w8Kno",
+                img: "https://upload.wikimedia.org/wikipedia/commons/e/e0/Body_Cavities_Frontal_view.jpg",
                 markers: [
-                    { id: 1, top: "40%", left: "40%", name: "Right Upper Quadrant (RUQ)", desc: "Contains Liver, Gallbladder, and Right Kidney." },
-                    { id: 2, top: "40%", left: "60%", name: "Left Upper Quadrant (LUQ)", desc: "Contains Stomach, Spleen, Left Kidney, and Pancreas." },
+                    { id: 1, top: "45%", left: "40%", name: "Right Upper Quadrant (RUQ)", desc: "Contains Liver, Gallbladder, and Right Kidney." },
+                    { id: 2, top: "45%", left: "60%", name: "Left Upper Quadrant (LUQ)", desc: "Contains Stomach, Spleen, Left Kidney, and Pancreas." },
                     { id: 3, top: "70%", left: "40%", name: "Right Lower Quadrant (RLQ)", desc: "Contains Cecum, Appendix, and Right Ovary." },
                     { id: 4, top: "70%", left: "60%", name: "Left Lower Quadrant (LLQ)", desc: "Contains Left Ovary and Sigmoid Colon." }
                 ]
@@ -457,19 +457,19 @@
                 strand: "Strand 1",
                 title: "Body Cavities & Internal Membranes",
                 tip: "Dorsal cavity includes Cranial & Vertebral. Ventral includes Thoracic & Abdominopelvic.",
-                img: "https://encrypted-tbn1.gstatic.com/licensed-image?q=tbn:ANd9GcQP2WShbpYkXS6weBis-VlgmgHehdH5P_kUHpD_z2hD27vgmh2v6nSlDRfMP6uI5HO8L4jSUtaas1EuOCQ",
+                img: "https://upload.wikimedia.org/wikipedia/commons/1/14/Body_Cavities_Frontal_view_labeled.jpg",
                 markers: [
-                    { id: 1, top: "15%", left: "48%", name: "Cranial Cavity", desc: "Houses the Brain (Dorsal cavity)." },
-                    { id: 2, top: "35%", left: "48%", name: "Thoracic Cavity / Mediastinum", desc: "Contains Lungs (Pleural), Heart (Pericardial), Esophagus, and Thymus." },
-                    { id: 3, top: "60%", left: "48%", name: "Abdominal Cavity", desc: "Contains Stomach, Liver, Spleen, Kidneys, Pancreas, and Intestines." },
-                    { id: 4, top: "82%", left: "48%", name: "Pelvic Cavity", desc: "Contains Urinary Bladder, Reproductive organs, and Rectum." }
+                    { id: 1, top: "12%", left: "50%", name: "Cranial Cavity", desc: "Houses the Brain (Dorsal cavity)." },
+                    { id: 2, top: "35%", left: "50%", name: "Thoracic Cavity / Mediastinum", desc: "Contains Lungs (Pleural), Heart (Pericardial), Esophagus, and Thymus." },
+                    { id: 3, top: "60%", left: "50%", name: "Abdominal Cavity", desc: "Contains Stomach, Liver, Spleen, Kidneys, Pancreas, and Intestines." },
+                    { id: 4, top: "82%", left: "50%", name: "Pelvic Cavity", desc: "Contains Urinary Bladder, Reproductive organs, and Rectum." }
                 ]
             },
             skin: {
                 strand: "Strand 4",
                 title: "Integumentary System (Skin Layers)",
                 tip: "Epidermis is avascular; Dermis contains blood vessels, nerves, sebaceous & sweat glands.",
-                img: "https://encrypted-tbn0.gstatic.com/licensed-image?q=tbn:ANd9GcQ4eU936p6z3CjX2fNToa9lS1gE7wG2lqA3q4I-7rI_GzG24m3M",
+                img: "https://upload.wikimedia.org/wikipedia/commons/5/52/Layers_of_the_skin.jpg",
                 markers: [
                     { id: 1, top: "20%", left: "50%", name: "Epidermis", desc: "Avascular superficial layer composed of stratified squamous epithelium." },
                     { id: 2, top: "50%", left: "50%", name: "Dermis", desc: "Vascular true skin containing hair follicles, sweat/sebaceous glands, and nerve endings." },
@@ -480,7 +480,7 @@
                 strand: "Strand 5",
                 title: "Anatomy of a Long Bone",
                 tip: "Diaphysis = shaft; Epiphysis = ends; Periosteum = outer membrane; Medullary cavity = yellow marrow.",
-                img: "https://encrypted-tbn2.gstatic.com/licensed-image?q=tbn:ANd9GcQj7J5X9uQ6XpS5pY8J9vY9qZ9kL1nO7P6mQ8R4I3T2Y1U0V",
+                img: "https://upload.wikimedia.org/wikipedia/commons/1/12/603_Anatomy_of_a_Long_Bone.jpg",
                 markers: [
                     { id: 1, top: "15%", left: "50%", name: "Epiphysis", desc: "Expanded ends of long bone containing spongy bone and red marrow (hematopoiesis)." },
                     { id: 2, top: "50%", left: "50%", name: "Diaphysis & Medullary Cavity", desc: "Compact bone shaft containing medullary cavity filled with yellow marrow (fat)." },
@@ -491,109 +491,112 @@
                 strand: "Strand 6",
                 title: "Sarcomere Microanatomy",
                 tip: "Actin = thin filament; Myosin = thick filament. Cross-bridges form during contraction stimulated by ACh.",
-                img: "https://encrypted-tbn1.gstatic.com/licensed-image?q=tbn:ANd9GcT9K8J7L6M5N4O3P2Q1R0S9T8U7V6W5X4Y3Z2A1B0C",
+                img: "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e0/Sarcomere.svg/1024px-Sarcomere.svg.png",
                 markers: [
-                    { id: 1, top: "30%", left: "50%", name: "Myosin (Thick Filament)", desc: "Contains myosin heads that bind to actin forming cross-bridges." },
-                    { id: 2, top: "60%", left: "30%", name: "Actin (Thin Filament)", desc: "Contractile thin protein filaments anchored to Z-discs." }
+                    { id: 1, top: "45%", left: "50%", name: "Myosin (Thick Filament)", desc: "Contains myosin heads that bind to actin forming cross-bridges." },
+                    { id: 2, top: "30%", left: "30%", name: "Actin (Thin Filament)", desc: "Contractile thin protein filaments anchored to Z-discs." },
+                    { id: 3, top: "80%", left: "20%", name: "Z-Disc / Z-Line", desc: "Boundary of sarcomere anchoring thin actin filaments." }
                 ]
             },
             brain: {
                 strand: "Strand 7",
                 title: "Central Brain Structure & Brainstem",
                 tip: "Cerebrum = higher thought; Cerebellum = balance; Medulla = vital cardiac & respiratory centers.",
-                img: "https://encrypted-tbn0.gstatic.com/licensed-image?q=tbn:ANd9GcR8S7T6U5V4W3X2Y1Z0A9B8C7D6E5F4G3H2I1J",
+                img: "https://upload.wikimedia.org/wikipedia/commons/4/4b/Brain_anatomy.svg",
                 markers: [
-                    { id: 1, top: "25%", left: "40%", name: "Cerebrum", desc: "Largest brain region responsible for voluntary thought, sensory interpretation, and reasoning." },
-                    { id: 2, top: "70%", left: "70%", name: "Cerebellum", desc: "Posterior brain region regulating motor coordination, posture, and balance." },
-                    { id: 3, top: "75%", left: "45%", name: "Brain Stem (Medulla Oblongata)", desc: "Controls vital heart rate, blood pressure, and breathing centers." }
+                    { id: 1, top: "25%", left: "35%", name: "Cerebrum", desc: "Largest brain region responsible for voluntary thought, sensory interpretation, and reasoning." },
+                    { id: 2, top: "70%", left: "75%", name: "Cerebellum", desc: "Posterior brain region regulating motor coordination, posture, and balance." },
+                    { id: 3, top: "75%", left: "50%", name: "Brain Stem (Medulla Oblongata)", desc: "Controls vital heart rate, blood pressure, and breathing centers." }
                 ]
             },
             eye: {
                 strand: "Strand 7",
                 title: "Eye Tunics & Optical Structures",
                 tip: "Sclera = fibrous outer tunic; Choroid = vascular middle layer; Retina = nervous inner photo tunic.",
-                img: "https://encrypted-tbn3.gstatic.com/licensed-image?q=tbn:ANd9GcQ1W2E3R4T5Y6U7I8O9P0A1S2D3F4G5H6J7K8L",
+                img: "https://upload.wikimedia.org/wikipedia/commons/thumb/1/1e/Schematic_diagram_of_the_human_eye_en.svg/1024px-Schematic_diagram_of_the_human_eye_en.svg.png",
                 markers: [
                     { id: 1, top: "50%", left: "20%", name: "Cornea & Lens", desc: "Refracts light rays through pupil onto retina." },
-                    { id: 2, top: "50%", left: "80%", name: "Retina", desc: "Nervous inner tunic containing photoreceptor rods (night) and cones (color)." }
+                    { id: 2, top: "50%", left: "80%", name: "Retina", desc: "Nervous inner tunic containing photoreceptor rods (night) and cones (color)." },
+                    { id: 3, top: "70%", left: "85%", name: "Optic Nerve (CN II)", desc: "Transmits visual action potentials from retina to occipital lobe." }
                 ]
             },
             ear: {
                 strand: "Strand 7",
                 title: "Ear Cavities & Auditory Ossicles",
                 tip: "Auditory Ossicles sequence: Malleus (hammer) -> Incus (anvil) -> Stapes (stirrup).",
-                img: "https://encrypted-tbn2.gstatic.com/licensed-image?q=tbn:ANd9GcA1B2C3D4E5F6G7H8I9J0K1L2M3N4O5P6Q7R8S",
+                img: "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d2/Anatomy_of_the_Human_Ear.svg/1024px-Anatomy_of_the_Human_Ear.svg.png",
                 markers: [
-                    { id: 1, top: "40%", left: "40%", name: "Tympanic Membrane & Ossicles", desc: "Vibrates malleus, incus, and stapes across middle ear cavity." },
-                    { id: 2, top: "50%", left: "75%", name: "Cochlea & Organ of Corti", desc: "Fluid-filled inner ear structure converting vibrations into auditory nerve impulses." }
+                    { id: 1, top: "45%", left: "40%", name: "Tympanic Membrane & Ossicles", desc: "Vibrates malleus, incus, and stapes across middle ear cavity." },
+                    { id: 2, top: "50%", left: "65%", name: "Cochlea & Organ of Corti", desc: "Fluid-filled inner ear structure converting vibrations into auditory nerve impulses." },
+                    { id: 3, top: "35%", left: "60%", name: "Semicircular Canals", desc: "Sensory organs for dynamic equilibrium and head movement rotation." }
                 ]
             },
             endocrine: {
                 strand: "Strand 8",
                 title: "Major Endocrine Glands",
                 tip: "Pituitary gland sits in hypophyseal fossa (Sella Turcica); Adrenal atop kidneys; Pancreas in LUQ.",
-                img: "https://encrypted-tbn1.gstatic.com/licensed-image?q=tbn:ANd9GcT1U2V3W4X5Y6Z7A8B9C0D1E2F3G4H5I6J7K8L",
+                img: "https://upload.wikimedia.org/wikipedia/commons/thumb/d/da/Illu_endocrine_system.svg/1024px-Illu_endocrine_system.svg.png",
                 markers: [
-                    { id: 1, top: "15%", left: "48%", name: "Pituitary Gland (Hypophysis)", desc: "Sits in Sella Turcica; secretes HGH, TSH, ACTH, ADH, and Oxytocin." },
-                    { id: 2, top: "30%", left: "48%", name: "Thyroid Gland", desc: "Inferior to larynx; secretes T3 and T4 regulating cell metabolic rate." },
-                    { id: 3, top: "55%", left: "40%", name: "Adrenal Glands", desc: "Atop kidneys; Cortex secretes Cortisol; Medulla secretes Epinephrine." },
-                    { id: 4, top: "55%", left: "60%", name: "Pancreas (Islets)", desc: "Beta cells secrete Insulin (lowers blood sugar); Alpha cells secrete Glucagon." }
+                    { id: 1, top: "15%", left: "52%", name: "Pituitary Gland (Hypophysis)", desc: "Sits in Sella Turcica; secretes HGH, TSH, ACTH, ADH, and Oxytocin." },
+                    { id: 2, top: "25%", left: "50%", name: "Thyroid Gland", desc: "Inferior to larynx; secretes T3 and T4 regulating cell metabolic rate." },
+                    { id: 3, top: "50%", left: "45%", name: "Adrenal Glands", desc: "Atop kidneys; Cortex secretes Cortisol; Medulla secretes Epinephrine." },
+                    { id: 4, top: "52%", left: "55%", name: "Pancreas (Islets)", desc: "Beta cells secrete Insulin (lowers blood sugar); Alpha cells secrete Glucagon." }
                 ]
             },
             heart: {
                 strand: "Strand 11",
                 title: "Heart Chambers & Blood Flow",
                 tip: "Deoxygenated blood enters Right Atrium via Vena Cava -> Tricuspid -> R Ventricle.",
-                img: "https://encrypted-tbn1.gstatic.com/licensed-image?q=tbn:ANd9GcS0IkOOV-vma0ypAdk8OfmTxS2NZZnqhPidOuG0cF28rslgyN06HcRp_JbqFMV_McGFFbrV25BKfgt9Llc",
+                img: "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e5/Diagram_of_the_human_heart_%28cropped%29.svg/1024px-Diagram_of_the_human_heart_%28cropped%29.svg.png",
                 markers: [
-                    { id: 1, top: "45%", left: "30%", name: "Right Atrium & SA Node", desc: "Receives deoxygenated blood; contains SA Node (pacemaker)." },
-                    { id: 2, top: "70%", left: "35%", name: "Right Ventricle", desc: "Pumps deoxygenated blood through Pulmonary Semilunar Valve to lungs." },
-                    { id: 3, top: "40%", left: "70%", name: "Left Atrium", desc: "Receives oxygenated blood from pulmonary veins." },
-                    { id: 4, top: "70%", left: "65%", name: "Left Ventricle & Myocardium", desc: "Thickest muscular chamber; pumps oxygenated blood out Aorta to body." }
+                    { id: 1, top: "35%", left: "30%", name: "Right Atrium & SA Node", desc: "Receives deoxygenated blood; contains SA Node (pacemaker)." },
+                    { id: 2, top: "65%", left: "35%", name: "Right Ventricle", desc: "Pumps deoxygenated blood through Pulmonary Semilunar Valve to lungs." },
+                    { id: 3, top: "35%", left: "70%", name: "Left Atrium", desc: "Receives oxygenated blood from pulmonary veins." },
+                    { id: 4, top: "65%", left: "65%", name: "Left Ventricle & Myocardium", desc: "Thickest muscular chamber; pumps oxygenated blood out Aorta to body." }
                 ]
             },
             respiratory: {
                 strand: "Strand 12",
                 title: "Respiratory Airway Tract",
                 tip: "Pathway: Nose -> Pharynx -> Larynx -> Trachea -> Bronchi -> Bronchioles -> Alveoli.",
-                img: "https://encrypted-tbn0.gstatic.com/licensed-image?q=tbn:ANd9GcQ9W8E7R6T5Y4U3I2O1P0A9S8D7F6G5H4J3K2L",
+                img: "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a1/Conducting_passage_of_respiratory_system.svg/1024px-Conducting_passage_of_respiratory_system.svg.png",
                 markers: [
                     { id: 1, top: "20%", left: "50%", name: "Larynx & Epiglottis", desc: "Voice box containing vocal cords; Epiglottis flap prevents aspiration." },
-                    { id: 2, top: "40%", left: "50%", name: "Trachea & Primary Bronchi", desc: "Windpipe reinforced with cartilage rings leading into right/left lungs." },
-                    { id: 3, top: "70%", left: "60%", name: "Alveoli (Air Sacs)", desc: "Microscopic sites of external gas exchange between air and capillary blood." }
+                    { id: 2, top: "35%", left: "50%", name: "Trachea & Primary Bronchi", desc: "Windpipe reinforced with cartilage rings leading into right/left lungs." },
+                    { id: 3, top: "65%", left: "60%", name: "Alveoli (Air Sacs)", desc: "Microscopic sites of external gas exchange between air and capillary blood." }
                 ]
             },
             digestive: {
                 strand: "Strand 13",
                 title: "Digestive Tract & Accessory Organs",
                 tip: "Alimentary canal = continuous GI tube; Accessory = Liver, Gallbladder, Pancreas, Salivary glands.",
-                img: "https://encrypted-tbn1.gstatic.com/licensed-image?q=tbn:ANd9GcZ1X2Y3W4V5U6T7S8R9Q0P1O2N3M4L5K6J7I8H",
+                img: "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c5/Digestive_system_diagram_en.svg/1024px-Digestive_system_diagram_en.svg.png",
                 markers: [
-                    { id: 1, top: "35%", left: "40%", name: "Liver & Gallbladder", desc: "Liver produces bile; Gallbladder stores bile for fat emulsification." },
-                    { id: 2, top: "35%", left: "60%", name: "Stomach", desc: "Parietal cells secrete HCl; Chief cells secrete Pepsinogen to digest proteins." },
-                    { id: 3, top: "65%", left: "50%", name: "Small & Large Intestines", desc: "Small intestine absorbs nutrients (Duodenum/Jejunum/Ileum); Large intestine absorbs water." }
+                    { id: 1, top: "35%", left: "42%", name: "Liver & Gallbladder", desc: "Liver produces bile; Gallbladder stores bile for fat emulsification." },
+                    { id: 2, top: "35%", left: "58%", name: "Stomach", desc: "Parietal cells secrete HCl; Chief cells secrete Pepsinogen to digest proteins." },
+                    { id: 3, top: "60%", left: "50%", name: "Small & Large Intestines", desc: "Small intestine absorbs nutrients (Duodenum/Jejunum/Ileum); Large intestine absorbs water." }
                 ]
             },
             nephron: {
                 strand: "Strand 14",
                 title: "Nephron Microanatomy",
                 tip: "Filtration occurs in Glomerulus; Reabsorption in Proximal Tubule & Loop of Henle; Secretion in Distal Tubule.",
-                img: "https://encrypted-tbn3.gstatic.com/licensed-image?q=tbn:ANd9GcTdiVJADgsXh4UagaNaDcdTa1vhLN-NA09p26N-h6e3iC8LynnC9J_PkH-FaXowHm-2PRPLm2TGKKaitpw",
+                img: "https://upload.wikimedia.org/wikipedia/commons/thumb/2/27/Physiology_of_Nephron.svg/1024px-Physiology_of_Nephron.svg.png",
                 markers: [
-                    { id: 1, top: "25%", left: "35%", name: "Glomerulus & Bowman's Capsule", desc: "Site of Glomerular Filtration under blood pressure." },
-                    { id: 2, top: "35%", left: "55%", name: "Proximal Convoluted Tubule", desc: "Site of bulk Tubular Reabsorption (glucose, amino acids, water)." },
+                    { id: 1, top: "25%", left: "25%", name: "Glomerulus & Bowman's Capsule", desc: "Site of Glomerular Filtration under blood pressure." },
+                    { id: 2, top: "35%", left: "45%", name: "Proximal Convoluted Tubule", desc: "Site of bulk Tubular Reabsorption (glucose, amino acids, water)." },
                     { id: 3, top: "75%", left: "50%", name: "Loop of Henle (Nephron Loop)", desc: "Descending limb reabsorbs water; Ascending limb reabsorbs salts." },
                     { id: 4, top: "35%", left: "75%", name: "Distal Tubule & Collecting Duct", desc: "Target of ADH; Tubular Secretion occurs here to form final urine." }
                 ]
             },
             uterus: {
                 strand: "Strand 15",
-                title: "Uterine & Female Reproductive System",
+                title: "Female Reproductive & Uterine Structure",
                 tip: "Stratum functionalis layer of endometrium sheds during menses; Stratum basalis regenerates it.",
-                img: "https://encrypted-tbn2.gstatic.com/licensed-image?q=tbn:ANd9GcA9B8C7D6E5F4G3H2I1J0K9L8M7N6O5P4Q3R2S",
+                img: "https://upload.wikimedia.org/wikipedia/commons/thumb/0/06/Female_reproductive_system_diatram_en.svg/1024px-Female_reproductive_system_diatram_en.svg.png",
                 markers: [
-                    { id: 1, top: "30%", left: "30%", name: "Ovary & Fallopian Tube Ampulla", desc: "Ovary produces oocytes; Ampulla of Fallopian tube is primary site of fertilization." },
-                    { id: 2, top: "50%", left: "50%", name: "Uterus (Myometrium & Endometrium)", desc: "Myometrium contracts during labor; Endometrium functionalis layer sheds during menses." }
+                    { id: 1, top: "25%", left: "20%", name: "Ovary & Fallopian Tube Ampulla", desc: "Ovary produces oocytes; Ampulla of Fallopian tube is primary site of fertilization." },
+                    { id: 2, top: "45%", left: "50%", name: "Uterus (Myometrium & Endometrium)", desc: "Myometrium contracts during labor; Endometrium functionalis layer sheds during menses." }
                 ]
             }
         };
@@ -836,8 +839,8 @@
 
             const canvas = document.getElementById('diagramCanvas');
             canvas.innerHTML = `
-                <img src="${data.img}" alt="${data.title}" class="max-h-[380px] w-auto object-contain rounded-xl opacity-80" />
-                <div class="absolute top-3 left-3 bg-slate-900/80 backdrop-blur px-3 py-1 rounded-full text-xs font-bold text-indigo-300 border border-slate-700">${data.title}</div>
+                <img src="${data.img}" alt="${data.title}" class="max-h-[380px] w-auto object-contain rounded-xl bg-white/5 p-2 shadow-inner" />
+                <div class="absolute top-3 left-3 bg-slate-900/90 backdrop-blur px-3 py-1.5 rounded-full text-xs font-bold text-indigo-300 border border-slate-700 shadow-md">${data.title}</div>
             `;
 
             data.markers.forEach(m => {
