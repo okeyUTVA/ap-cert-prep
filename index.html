@@ -1,0 +1,937 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Medical Anatomy & Physiology • Certification Prep Center</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- FontAwesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        body { font-family: 'Inter', sans-serif; }
+        h1, h2, h3, .font-heading { font-family: 'Outfit', sans-serif; }
+        .card-flip { perspective: 1000px; }
+        .card-inner { transition: transform 0.6s; transform-style: preserve-3d; }
+        .card-flipped .card-inner { transform: rotateY(180deg); }
+        .card-front, .card-back { backface-visibility: hidden; }
+        .card-back { transform: rotateY(180deg); }
+        .custom-scrollbar::-webkit-scrollbar { width: 6px; }
+        .custom-scrollbar::-webkit-scrollbar-track { background: #f1f5f9; }
+        .custom-scrollbar::-webkit-scrollbar-thumb { background: #cbd5e1; border-radius: 4px; }
+    </style>
+</head>
+<body class="bg-slate-50 text-slate-800 min-h-screen flex flex-col">
+
+    <!-- HEADER & BRANDING -->
+    <header class="bg-gradient-to-r from-blue-900 via-indigo-900 to-slate-900 text-white border-b border-indigo-700/50 shadow-md">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
+            <div class="flex flex-col md:flex-row md:items-center md:justify-between gap-4">
+                <div>
+                    <div class="inline-flex items-center gap-2 bg-indigo-500/20 text-indigo-300 text-xs font-semibold px-3 py-1 rounded-full border border-indigo-400/30 uppercase tracking-wider mb-2">
+                        <i class="fa-solid fa-heart-pulse text-rose-400"></i> High School Medical Anatomy & Physiology Review
+                    </div>
+                    <h1 class="text-3xl sm:text-4xl font-extrabold tracking-tight text-white flex items-center gap-3">
+                        🧬 Medical A&P Certification Prep Center
+                    </h1>
+                    <p class="text-indigo-100 text-sm sm:text-base mt-1 max-w-2xl">
+                        Self-Paced • 15 Units • Interactive Visual Diagrams & State Exam Simulator
+                    </p>
+                </div>
+                <div class="flex items-center gap-3 self-start md:self-auto bg-slate-800/60 p-3 rounded-xl border border-slate-700/60 backdrop-blur">
+                    <div class="text-center px-3 border-r border-slate-700">
+                        <span class="block text-2xl font-bold text-indigo-400">15</span>
+                        <span class="text-[10px] text-slate-400 uppercase tracking-wider">Strands</span>
+                    </div>
+                    <div class="text-center px-3 border-r border-slate-700">
+                        <span class="block text-2xl font-bold text-emerald-400">72%</span>
+                        <span class="text-[10px] text-slate-400 uppercase tracking-wider">Cut Score</span>
+                    </div>
+                    <div class="text-center px-3">
+                        <span class="block text-2xl font-bold text-amber-400">71</span>
+                        <span class="text-[10px] text-slate-400 uppercase tracking-wider">State Exam Qs</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- NAVIGATION TABS -->
+    <nav class="bg-white border-b border-slate-200 sticky top-0 z-30 shadow-sm">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex space-x-1 sm:space-x-4 overflow-x-auto custom-scrollbar py-2" id="navTabs">
+                <button onclick="switchTab('dictionary')" id="tab-dictionary" class="nav-btn px-4 py-2.5 rounded-lg text-sm font-semibold whitespace-nowrap transition-all text-indigo-700 bg-indigo-50 border border-indigo-200">
+                    <i class="fa-solid fa-book-bookmark mr-2"></i>Standards Dictionary
+                </button>
+                <button onclick="switchTab('diagrams')" id="tab-diagrams" class="nav-btn px-4 py-2.5 rounded-lg text-sm font-semibold whitespace-nowrap transition-all text-slate-600 hover:bg-slate-100">
+                    <i class="fa-solid fa-diagram-project mr-2"></i>Interactive Diagrams
+                </button>
+                <button onclick="switchTab('flashcards')" id="tab-flashcards" class="nav-btn px-4 py-2.5 rounded-lg text-sm font-semibold whitespace-nowrap transition-all text-slate-600 hover:bg-slate-100">
+                    <i class="fa-solid fa-layer-group mr-2"></i>Flashcard Decks
+                </button>
+                <button onclick="switchTab('drill')" id="tab-drill" class="nav-btn px-4 py-2.5 rounded-lg text-sm font-semibold whitespace-nowrap transition-all text-slate-600 hover:bg-slate-100">
+                    <i class="fa-solid fa-bolt-lightning mr-2"></i>Speed Drill
+                </button>
+                <button onclick="switchTab('exam')" id="tab-exam" class="nav-btn px-4 py-2.5 rounded-lg text-sm font-semibold whitespace-nowrap transition-all text-slate-600 hover:bg-slate-100">
+                    <i class="fa-solid fa-user-doctor mr-2"></i>State Exam Simulator
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- MAIN CONTAINER -->
+    <main class="flex-grow max-w-7xl w-full mx-auto px-4 sm:px-6 lg:px-8 py-6">
+
+        <!-- SECTION 1: STANDARDS DICTIONARY -->
+        <section id="section-dictionary" class="tab-content space-y-6">
+            <div class="bg-white p-6 rounded-2xl shadow-sm border border-slate-200 flex flex-col md:flex-row md:items-center justify-between gap-4">
+                <div>
+                    <h2 class="text-xl font-bold text-slate-900">A&P Standards & Key Clarifications</h2>
+                    <p class="text-slate-500 text-sm">Search concepts, organ structures, and official state vocabulary definitions across all 15 strands.</p>
+                </div>
+                <div class="flex flex-col sm:flex-row gap-3">
+                    <div class="relative">
+                        <i class="fa-solid fa-magnifying-glass absolute left-3 top-1/2 -translate-y-1/2 text-slate-400"></i>
+                        <input type="text" id="dictSearch" oninput="filterDictionary()" placeholder="Search organs, hormones, terms..." class="pl-9 pr-4 py-2 border border-slate-300 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-indigo-500 w-full sm:w-64">
+                    </div>
+                    <select id="strandFilter" onchange="filterDictionary()" class="px-3 py-2 border border-slate-300 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-indigo-500 bg-white">
+                        <option value="all">All 15 Strands</option>
+                    </select>
+                </div>
+            </div>
+
+            <div id="dictionaryContainer" class="space-y-6">
+                <!-- Dynamically populated by JS -->
+            </div>
+        </section>
+
+        <!-- SECTION 2: INTERACTIVE DIAGRAMS TOOL -->
+        <section id="section-diagrams" class="tab-content hidden space-y-6">
+            <div class="bg-white p-6 rounded-2xl shadow-sm border border-slate-200 flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+                <div>
+                    <h2 class="text-xl font-bold text-slate-900">Visual Diagram & Structure Labeler</h2>
+                    <p class="text-slate-500 text-sm">Click interactive markers on diagrams to practice organ locations, body cavities, and anatomical structures.</p>
+                </div>
+                <select id="diagramSelect" onchange="loadDiagram()" class="px-4 py-2.5 border border-indigo-200 bg-indigo-50 text-indigo-900 font-semibold rounded-xl focus:ring-2 focus:ring-indigo-500 text-sm">
+                    <option value="quadrants">Abdominal Quadrants & Organs (Strand 1)</option>
+                    <option value="cavities">Body Cavities & Membranes (Strand 1)</option>
+                    <option value="heart">Heart Chambers & Blood Flow (Strand 11)</option>
+                    <option value="nephron">Nephron Microanatomy (Strand 14)</option>
+                </select>
+            </div>
+
+            <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
+                <!-- Diagram Display Box -->
+                <div class="lg:col-span-2 bg-slate-900 rounded-2xl p-6 text-white relative flex flex-col items-center justify-center min-h-[420px] shadow-xl overflow-hidden" id="diagramCanvas">
+                    <!-- Interactive Markers populated via JS -->
+                </div>
+
+                <!-- Info Sidebar -->
+                <div class="bg-white p-6 rounded-2xl border border-slate-200 shadow-sm flex flex-col justify-between space-y-4">
+                    <div>
+                        <span class="text-xs font-bold uppercase tracking-wider text-indigo-600 bg-indigo-50 px-3 py-1 rounded-full" id="diagStrandLabel">Strand 1</span>
+                        <h3 class="text-2xl font-extrabold text-slate-900 mt-3" id="diagTitle">Select a Marker</h3>
+                        <p class="text-sm text-slate-600 mt-2 leading-relaxed" id="diagDescription">Click any numbered hotspot pin on the diagram to identify the organ structure, cavity, or physiological function.</p>
+                    </div>
+
+                    <div class="bg-slate-50 p-4 rounded-xl border border-slate-200 text-xs text-slate-500 space-y-1">
+                        <strong class="text-slate-800 block"><i class="fa-solid fa-lightbulb text-amber-500 mr-1.5"></i>Exam Tip:</strong>
+                        <span id="diagExamTip">State certification questions frequently ask which organs reside in specific quadrants or cavities.</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECTION 3: FLASHCARD DECKS -->
+        <section id="section-flashcards" class="tab-content hidden space-y-6">
+            <div class="bg-white p-6 rounded-2xl shadow-sm border border-slate-200 flex flex-col md:flex-row items-center justify-between gap-4">
+                <div>
+                    <h2 class="text-xl font-bold text-slate-900">Interactive A&P Flashcards</h2>
+                    <p class="text-slate-500 text-sm">Master anatomical structures, physiological mechanisms, and clinical conditions.</p>
+                </div>
+                <div class="flex flex-wrap items-center gap-3">
+                    <select id="flashcardStrand" onchange="initFlashcards()" class="px-3 py-2 border border-slate-300 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-indigo-500 bg-white">
+                        <option value="all">All Strands</option>
+                    </select>
+                    <span class="text-sm font-medium text-slate-600" id="cardCounter">Card 1 of 0</span>
+                </div>
+            </div>
+
+            <div class="max-w-xl mx-auto">
+                <div id="cardElement" onclick="flipCard()" class="card-flip cursor-pointer min-h-[300px]">
+                    <div class="card-inner relative w-full h-full min-h-[300px] bg-white rounded-2xl shadow-lg border-2 border-indigo-500/20 p-8 flex flex-col items-center justify-center text-center">
+                        <!-- Front -->
+                        <div class="card-front absolute inset-0 p-8 flex flex-col items-center justify-center text-center bg-white rounded-2xl">
+                            <span class="text-xs font-semibold uppercase tracking-wider text-indigo-600 bg-indigo-50 px-3 py-1 rounded-full mb-4" id="cardCategory">Category</span>
+                            <h3 class="text-2xl sm:text-3xl font-extrabold text-slate-800 mb-2" id="cardTerm">Term</h3>
+                            <p class="text-xs text-slate-400 mt-4"><i class="fa-solid fa-rotate mr-1"></i>Click card to flip</p>
+                        </div>
+                        <!-- Back -->
+                        <div class="card-back absolute inset-0 p-8 flex flex-col items-center justify-center text-center bg-slate-900 text-white rounded-2xl">
+                            <h4 class="text-lg sm:text-xl font-bold text-indigo-400 mb-2" id="cardDef">Definition</h4>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="flex items-center justify-between gap-4 mt-6">
+                    <button onclick="prevCard()" class="px-4 py-2.5 bg-slate-200 text-slate-700 font-semibold rounded-lg hover:bg-slate-300 transition"><i class="fa-solid fa-arrow-left mr-2"></i>Previous</button>
+                    <div class="flex gap-2">
+                        <button onclick="markCard(false)" class="px-4 py-2.5 bg-rose-100 text-rose-700 font-semibold rounded-lg hover:bg-rose-200 transition"><i class="fa-solid fa-xmark mr-1"></i>Review</button>
+                        <button onclick="markCard(true)" class="px-4 py-2.5 bg-emerald-100 text-emerald-700 font-semibold rounded-lg hover:bg-emerald-200 transition"><i class="fa-solid fa-check mr-1"></i>Got It!</button>
+                    </div>
+                    <button onclick="nextCard()" class="px-4 py-2.5 bg-indigo-600 text-white font-semibold rounded-lg hover:bg-indigo-700 transition">Next<i class="fa-solid fa-arrow-right ml-2"></i></button>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECTION 4: SPEED DRILL -->
+        <section id="section-drill" class="tab-content hidden space-y-6">
+            <div class="bg-white p-6 rounded-2xl shadow-sm border border-slate-200 flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+                <div>
+                    <h2 class="text-xl font-bold text-slate-900">High-Yield Concept Speed Drill</h2>
+                    <p class="text-slate-500 text-sm">Rapid-fire matching for key hormones, organelles, bone features, and feedback loops.</p>
+                </div>
+                <button onclick="startSpeedDrill()" class="px-5 py-2.5 bg-indigo-600 text-white font-bold rounded-lg hover:bg-indigo-700 transition">
+                    <i class="fa-solid fa-play mr-2"></i>Start New Round
+                </button>
+            </div>
+
+            <div id="drillArea" class="max-w-xl mx-auto bg-white p-8 rounded-2xl border border-slate-200 shadow-md text-center space-y-6">
+                <div class="flex items-center justify-between text-sm text-slate-500 border-b pb-3">
+                    <span>Score: <strong class="text-indigo-600 font-bold" id="drillScore">0</strong></span>
+                    <span>Question: <strong class="text-slate-800" id="drillNum">0/10</strong></span>
+                </div>
+                <div class="py-4">
+                    <span class="text-xs uppercase font-bold text-slate-400 tracking-wider">Match Concept</span>
+                    <h3 class="text-2xl sm:text-3xl font-extrabold text-slate-900 mt-2" id="drillPrompt">Prompt</h3>
+                </div>
+                <div class="grid grid-cols-1 gap-3 text-left" id="drillOptions">
+                    <!-- Dynamic Options -->
+                </div>
+            </div>
+        </section>
+
+        <!-- SECTION 5: STATE EXAM SIMULATOR -->
+        <section id="section-exam" class="tab-content hidden space-y-6">
+            <div class="bg-white p-6 rounded-2xl shadow-sm border border-slate-200 flex flex-col md:flex-row md:items-center justify-between gap-4">
+                <div>
+                    <h2 class="text-xl font-bold text-slate-900">State Certification Exam Simulator</h2>
+                    <p class="text-slate-500 text-sm">71 Questions • Weighted strictly by strand point distribution • Pass score: 72%.</p>
+                </div>
+                <button onclick="startExam()" id="btnStartExam" class="px-6 py-3 bg-indigo-600 text-white font-bold rounded-xl hover:bg-indigo-700 transition shadow-md">
+                    <i class="fa-solid fa-circle-play mr-2"></i>Begin 71-Question Exam
+                </button>
+            </div>
+
+            <div id="examContainer" class="hidden bg-white p-8 rounded-2xl border border-slate-200 shadow-lg space-y-6">
+                <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2 border-b border-slate-200 pb-4">
+                    <span class="text-sm font-bold text-slate-600" id="examProgress">Question 1 of 71</span>
+                    <span class="text-xs font-semibold px-3 py-1 bg-indigo-50 text-indigo-700 rounded-full border border-indigo-200" id="examStrandTag">Strand 1</span>
+                </div>
+
+                <h3 class="text-lg font-bold text-slate-900" id="examQuestionText">Question text...</h3>
+
+                <div class="space-y-3" id="examOptionsContainer">
+                    <!-- Dynamic options -->
+                </div>
+
+                <div class="flex items-center justify-between pt-4 border-t border-slate-200">
+                    <button onclick="prevExamQ()" id="btnPrevQ" class="px-4 py-2 bg-slate-100 text-slate-700 font-medium rounded-lg hover:bg-slate-200">Previous</button>
+                    <button onclick="nextExamQ()" id="btnNextQ" class="px-6 py-2 bg-indigo-600 text-white font-bold rounded-lg hover:bg-indigo-700">Next Question</button>
+                </div>
+            </div>
+
+            <!-- Exam Results Screen -->
+            <div id="examResults" class="hidden bg-white p-8 rounded-2xl border border-slate-200 shadow-xl space-y-6">
+                <div class="text-center space-y-3">
+                    <div id="badgePassFail" class="inline-block px-4 py-1.5 rounded-full font-bold text-sm">PASS</div>
+                    <h3 class="text-3xl font-extrabold text-slate-900" id="finalScoreText">Your Score: 80%</h3>
+                    <p class="text-slate-500 text-sm" id="scoreSubtext">You passed the State Exam Practice Test!</p>
+                </div>
+
+                <div class="border-t border-slate-200 pt-6">
+                    <h4 class="font-bold text-slate-800 mb-4">Strand Performance Diagnostic</h4>
+                    <div class="space-y-3" id="strandDiagnostics">
+                        <!-- Diagnostic Bars -->
+                    </div>
+                </div>
+
+                <div class="text-center pt-4">
+                    <button onclick="startExam()" class="px-6 py-3 bg-indigo-600 text-white font-bold rounded-xl hover:bg-indigo-700 transition">
+                        Retake Exam
+                    </button>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- FOOTER -->
+    <footer class="bg-slate-900 text-slate-400 text-xs border-t border-slate-800 py-6 mt-12">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center space-y-2">
+            <p>Medical Anatomy & Physiology State Certification Exam Prep Center</p>
+            <p class="text-slate-500">Designed for High School CTE Students.</p>
+        </div>
+    </footer>
+
+    <!-- SCRIPT DATA & LOGIC -->
+    <script>
+        // MASTER DATASET (15 STRANDS)
+        const apStrandsData = [
+            {
+                id: "strand_1",
+                title: "Strand 1: Body Organization & Homeostasis",
+                desc: "Anatomy vs Physiology, 6 levels of organization, body cavities, planes, quadrants, and feedback mechanisms.",
+                terms: [
+                    { t: "Anatomy vs Physiology", d: "Anatomy is the study of structure/shape; Physiology is the study of how body parts function." },
+                    { t: "6 Levels of Structural Organization", d: "Chemical -> Cellular -> Tissue -> Organ -> Organ System -> Organism." },
+                    { t: "Anabolic vs Catabolic", d: "Anabolism builds larger molecules from smaller ones (requires energy); Catabolism breaks down molecules (releases energy)." },
+                    { t: "Body Cavities - Dorsal", d: "Cranial cavity (Brain) and Vertebral/Spinal cavity (Spinal Cord)." },
+                    { t: "Body Cavities - Ventral", d: "Thoracic cavity (Mediastinum, Pericardial, Pleural) and Abdominopelvic cavity (Abdominal & Pelvic)." },
+                    { t: "Mediastinum", d: "Central compartment of thoracic cavity containing heart, bronchi, esophagus, and thymus." },
+                    { t: "Abdominal Quadrant Organs", d: "RUQ (Liver, Gallbladder, R Kidney); LUQ (Stomach, Spleen, L Kidney, Pancreas); RLQ (Appendix, Cecum, R Ovary); LLQ (L Ovary, Sigmoid Colon)." },
+                    { t: "Negative Feedback", d: "Counteracts a change to return body to set point (e.g., blood pressure, blood glucose, thermoregulation)." },
+                    { t: "Positive Feedback", d: "Amplifies a change away from set point (e.g., childbirth, blood clotting, breastfeeding)." }
+                ]
+            },
+            {
+                id: "strand_2",
+                title: "Strand 2: Body Chemistry",
+                desc: "Major elements (C, H, O, N), chemical bonds, properties of water, pH scale, macromolecules, and ATP respiration.",
+                terms: [
+                    { t: "Major Body Elements", d: "Carbon (C), Hydrogen (H), Oxygen (O), Nitrogen (N) make up ~96% of body mass." },
+                    { t: "Ionic vs Covalent Bonds", d: "Ionic bonds transfer electrons (forming cations + and anions -); Covalent bonds share electrons." },
+                    { t: "Blood pH Range", d: "Normal human blood pH is strictly maintained between 7.35 and 7.45." },
+                    { t: "Cellular Respiration", d: "Converts glucose & oxygen into energy: ATP -> ADP + P + ENERGY." }
+                ]
+            },
+            {
+                id: "strand_3",
+                title: "Strand 3: Cell Biology & Transport",
+                desc: "Cell organelles, phospholipid bilayer, active/passive transport, osmosis, and cell division.",
+                terms: [
+                    { t: "Mitochondria", d: "Powerhouse of the cell; site of ATP production via cellular respiration." },
+                    { t: "Lysosomes", d: "Organelles containing digestive enzymes to break down waste/cellular debris." },
+                    { t: "Passive Transport", d: "No ATP required: Simple diffusion, Facilitated diffusion, Osmosis, Filtration." },
+                    { t: "Active Transport", d: "Requires ATP: Endocytosis (phagocytosis/pinocytosis), Exocytosis, Sodium/Potassium Pump." }
+                ]
+            },
+            {
+                id: "strand_4",
+                title: "Strand 4: Histology & Integumentary System",
+                desc: "4 primary tissues, serous/visceral membranes, skin layers, skin cancers, and burn classifications.",
+                terms: [
+                    { t: "4 Primary Tissues", d: "Epithelial (covering/lining), Connective (support/protection), Muscular (movement), Nervous (communication)." },
+                    { t: "Visceral vs Parietal Membranes", d: "Visceral membrane covers the organ directly; Parietal membrane lines the cavity wall." },
+                    { t: "Skin Layers", d: "Epidermis (avascular outer layer), Dermis (vascular true skin), Subcutaneous/Hypodermis (adipose)." }
+                ]
+            },
+            {
+                id: "strand_5",
+                title: "Strand 5: Skeletal System",
+                desc: "Bone functions, ossification cells, long bone structure, axial/appendicular bones, joints, and spinal curves.",
+                terms: [
+                    { t: "Bone Cells", d: "Osteoblasts (build bone), Osteocytes (mature bone cells), Osteoclasts (break down/absorb bone)." },
+                    { t: "Axial vs Appendicular Skeleton", d: "Axial (Skull, Vertebrae, Ribs, Sternum, Hyoid); Appendicular (Girdles, Arms, Legs, Hands, Feet)." },
+                    { t: "Ligament vs Tendon", d: "Ligaments connect bone to bone; Tendons connect muscle to bone." }
+                ]
+            },
+            {
+                id: "strand_6",
+                title: "Strand 6: Muscular System",
+                desc: "Sarcomere sliding filament theory, neuromuscular junction (ACh), muscle names, and strain vs sprain.",
+                terms: [
+                    { t: "Sarcomere Proteins", d: "Actin (thin filament) and Myosin (thick filament) slide past each other during contraction." },
+                    { t: "Neuromuscular Junction", d: "Action potential triggers release of Acetylcholine (ACh) neurotransmitter to stimulate contraction." },
+                    { t: "Origin vs Insertion", d: "Origin is attached to stationary bone; Insertion is attached to the movable bone." }
+                ]
+            },
+            {
+                id: "strand_7",
+                title: "Strand 7: Nervous System & Special Senses",
+                desc: "CNS vs PNS, glial cells, brain regions, reflex arc, eye tuning, ear ossicles, and sense disorders.",
+                terms: [
+                    { t: "Brain Regions", d: "Cerebrum (higher thought), Cerebellum (balance/coordination), Brain Stem (Medulla/Pons/Midbrain)." },
+                    { t: "Meninges Layers", d: "Dura mater (outer tough), Arachnoid mater (middle web), Pia mater (inner delicate layer)." },
+                    { t: "Ear Ossicles", d: "Malleus (hammer) -> Incus (anvil) -> Stapes (stirrup) in the tympanic middle ear cavity." }
+                ]
+            },
+            {
+                id: "strand_8",
+                title: "Strand 8: Endocrine System",
+                desc: "Hormones, pituitary gland (HGH, ADH, OT), adrenal hormones, pancreas (insulin/glucagon), and disorders.",
+                terms: [
+                    { t: "Pituitary Gland (Sella Turcica)", d: "Anterior: HGH, TSH, ACTH; Posterior: ADH (water retention), Oxytocin (uterine contraction)." },
+                    { t: "Pancreatic Islet Cells", d: "Beta cells release Insulin (lowers blood sugar); Alpha cells release Glucagon (raises blood sugar)." }
+                ]
+            },
+            {
+                id: "strand_9",
+                title: "Strand 9: Blood",
+                desc: "Formed elements, Hemostasis steps, ABO blood typing, and anemias.",
+                terms: [
+                    { t: "3 Steps of Hemostasis", d: "1. Vascular Spasm -> 2. Platelet Plug Formation -> 3. Coagulation (clotting cascade)." },
+                    { t: "Thrombus vs Embolus", d: "Thrombus is a stationary blood clot; Embolus is a free-floating clot." }
+                ]
+            },
+            {
+                id: "strand_10",
+                title: "Strand 10: Lymphatic & Immune System",
+                desc: "Lymph organs, T & B lymphocytes, active/passive immunity.",
+                terms: [
+                    { t: "T-Cells vs B-Cells", d: "B-cells produce antibodies (humoral); T-cells directly attack infected cells (cell-mediated)." },
+                    { t: "Natural vs Artificial Immunity", d: "Natural (exposure to pathogen/maternal milk); Artificial (vaccine or antitoxin injection)." }
+                ]
+            },
+            {
+                id: "strand_11",
+                title: "Strand 11: Cardiovascular System",
+                desc: "Heart layers, chambers, valves, pathway of blood flow, cardiac conduction, and blood pressure.",
+                terms: [
+                    { t: "Heart Wall Layers", d: "Epicardium (Visceral pericardium) -> Myocardium (cardiac muscle) -> Endocardium (inner lining)." },
+                    { t: "Cardiac Conduction Pathway", d: "SA Node (pacemaker) -> AV Node -> Bundle of His -> Bundle Branches -> Purkinje Fibers." }
+                ]
+            },
+            {
+                id: "strand_12",
+                title: "Strand 12: Respiratory System",
+                desc: "Airway pathway, larynx structures, lung volumes (TV, IRV, ERV, RV).",
+                terms: [
+                    { t: "Airway Flow Sequence", d: "Nose/Mouth -> Pharynx -> Larynx -> Trachea -> Primary Bronchi -> Bronchioles -> Alveoli." },
+                    { t: "Tidal Volume (TV)", d: "Volume of air inhaled or exhaled during a single normal quiet breath (~500 mL)." }
+                ]
+            },
+            {
+                id: "strand_13",
+                title: "Strand 13: Digestive System",
+                desc: "Alimentary canal vs accessory organs, tooth parts, stomach secretions, bile function.",
+                terms: [
+                    { t: "Stomach Secretions", d: "Chief cells secrete Pepsinogen; Parietal cells secrete Hydrochloric Acid (HCl)." },
+                    { t: "Bile Function", d: "Bile performs emulsification (breaks large fat globules into small drops)." }
+                ]
+            },
+            {
+                id: "strand_14",
+                title: "Strand 14: Urinary System",
+                desc: "Nephron structures, 3 urine processes (filtration, reabsorption, secretion).",
+                terms: [
+                    { t: "3 Urine Formation Processes", d: "1. Glomerular Filtration -> 2. Tubular Reabsorption -> 3. Tubular Secretion." },
+                    { t: "Nephron Pathway", d: "Glomerulus -> Bowman's Capsule -> Proximal Tubule -> Loop of Henle -> Distal Tubule -> Collecting Duct." }
+                ]
+            },
+            {
+                id: "strand_15",
+                title: "Strand 15: Reproductive System",
+                desc: "Male/female genitalia, uterine layers, development stages, and labor stages.",
+                terms: [
+                    { t: "Uterine Wall Layers", d: "Perimetrium -> Myometrium -> Endometrium (Stratum functionalis shed during menses)." },
+                    { t: "3 Stages of Labor", d: "Stage 1: Dilation & Effacement -> Stage 2: Delivery of infant -> Stage 3: Expulsion of placenta." }
+                ]
+            }
+        ];
+
+        // DIAGRAM DATASETS FOR INTERACTIVE LABELLER TOOL
+        const diagramData = {
+            quadrants: {
+                strand: "Strand 1",
+                title: "Abdominal Quadrants & Organ Locations",
+                tip: "State exams often ask which quadrant holds the appendix (RLQ), spleen (LUQ), or gallbladder (RUQ).",
+                markers: [
+                    { id: 1, top: "25%", left: "30%", name: "Right Upper Quadrant (RUQ)", desc: "Contains the Liver, Gallbladder, and Right Kidney." },
+                    { id: 2, top: "25%", left: "70%", name: "Left Upper Quadrant (LUQ)", desc: "Contains the Stomach, Spleen, Left Kidney, and Pancreas." },
+                    { id: 3, top: "65%", left: "30%", name: "Right Lower Quadrant (RLQ)", desc: "Contains the Cecum, Appendix, and Right Ovary." },
+                    { id: 4, top: "65%", left: "70%", name: "Left Lower Quadrant (LLQ)", desc: "Contains the Left Ovary and Sigmoid Colon." }
+                ]
+            },
+            cavities: {
+                strand: "Strand 1",
+                title: "Body Cavities & Internal Membranes",
+                tip: "Dorsal cavity includes Cranial & Vertebral cavities. Ventral includes Thoracic & Abdominopelvic.",
+                markers: [
+                    { id: 1, top: "15%", left: "50%", name: "Cranial Cavity", desc: "Enclosed by skull bones; houses the Brain (Dorsal cavity)." },
+                    { id: 2, top: "35%", left: "50%", name: "Thoracic Cavity / Mediastinum", desc: "Contains Pleural cavities (Lungs), Pericardial cavity (Heart), Esophagus, and Thymus." },
+                    { id: 3, top: "60%", left: "50%", name: "Abdominal Cavity", desc: "Contains Stomach, Liver, Spleen, Kidneys, Pancreas, and Intestines." },
+                    { id: 4, top: "85%", left: "50%", name: "Pelvic Cavity", desc: "Contains Urinary Bladder, Reproductive organs, and Rectum." }
+                ]
+            },
+            heart: {
+                strand: "Strand 11",
+                title: "Heart Chambers & Conduction Pathway",
+                tip: "Deoxygenated blood enters Right Atrium via Superior/Inferior Vena Cava -> Tricuspid -> R Ventricle.",
+                markers: [
+                    { id: 1, top: "25%", left: "35%", name: "Right Atrium & SA Node", desc: "Receives deoxygenated blood; contains SA Node (natural pacemaker)." },
+                    { id: 2, top: "65%", left: "35%", name: "Right Ventricle", desc: "Pumps deoxygenated blood through Pulmonary Semilunar Valve to lungs." },
+                    { id: 3, top: "25%", left: "65%", name: "Left Atrium", desc: "Receives oxygenated blood from pulmonary veins." },
+                    { id: 4, top: "65%", left: "65%", name: "Left Ventricle & Myocardium", desc: "Thickest muscular chamber; pumps oxygenated blood out Aorta to body." }
+                ]
+            },
+            nephron: {
+                strand: "Strand 14",
+                title: "Nephron Microanatomy & Urine Formation",
+                tip: "Filtration occurs in Glomerulus; Reabsorption in Proximal Tubule & Loop of Henle; Secretion in Distal Tubule.",
+                markers: [
+                    { id: 1, top: "20%", left: "25%", name: "Glomerulus & Bowman's Capsule", desc: "Site of Glomerular Filtration under pressure." },
+                    { id: 2, top: "35%", left: "45%", name: "Proximal Convoluted Tubule", desc: "Site of bulk Tubular Reabsorption (glucose, amino acids, water)." },
+                    { t: 3, top: "75%", left: "50%", name: "Loop of Henle (Nephron Loop)", desc: "Descending limb reabsorbs water; Ascending limb reabsorbs solutes/salts." },
+                    { id: 4, top: "35%", left: "75%", name: "Distal Tubule & Collecting Duct", desc: "Target of ADH; Tubular Secretion occurs here to form final urine." }
+                ]
+            }
+        };
+
+        // 71 STATE EXAM QUESTIONS (WEIGHTED)
+        const apExamQuestions = [
+            // Strand 1 (7 Qs)
+            { q: "Which level of structural organization consists of groups of similar cells working together to perform a specific function?", opts: ["Organ level", "Tissue level", "Cellular level", "System level"], ans: 1, strand: "Strand 1" },
+            { q: "A metabolic process that breaks down complex molecules into simpler ones while releasing energy is termed:", opts: ["Anabolism", "Catabolism", "Emulsification", "Glycolysis"], ans: 1, strand: "Strand 1" },
+            { q: "Which anatomical plane divides the body into anterior (front) and posterior (back) portions?", opts: ["Transverse", "Frontal (Coronal)", "Midsagittal", "Sagittal"], ans: 1, strand: "Strand 1" },
+            { q: "The heart, esophagus, and trachea are located within which specific compartment of the thoracic cavity?", opts: ["Pleural cavity", "Mediastinum", "Peritoneal cavity", "Pelvic cavity"], ans: 1, strand: "Strand 1" },
+            { q: "A patient experiencing right lower quadrant (RLQ) abdominal pain is most likely experiencing inflammation of which organ?", opts: ["Spleen", "Gallbladder", "Appendix", "Sigmoid colon"], ans: 2, strand: "Strand 1" },
+            { q: "Which of the following is an example of a POSITIVE feedback mechanism in the human body?", opts: ["Thermoregulation", "Blood glucose regulation", "Blood clotting during vascular injury", "Blood pressure control"], ans: 2, strand: "Strand 1" },
+            { q: "The elbow is described as being __________ to the wrist.", opts: ["Distal", "Proximal", "Inferior", "Lateral"], ans: 1, strand: "Strand 1" },
+
+            // Strand 2 (8 Qs)
+            { q: "Which four elements constitute approximately 96% of total human body mass?", opts: ["C, H, O, N", "C, Na, K, Cl", "O, Fe, Ca, P", "H, O, Ca, N"], ans: 0, strand: "Strand 2" },
+            { q: "A solute ion carrying a net positive charge (such as Na+ or K+) is classified as a(n):", opts: ["Anion", "Cation", "Molecule", "Electrolyte compound"], ans: 1, strand: "Strand 2" },
+            { q: "Which property of water allows it to cushion organs and prevent friction between membranes?", opts: ["High heat capacity", "Universal solvent", "Lubricant", "Chemical reactivity"], ans: 2, strand: "Strand 2" },
+            { q: "Normal arterial blood pH in a healthy human body is strictly maintained within which range?", opts: ["6.80 to 7.20", "7.00 to 7.30", "7.35 to 7.45", "7.50 to 7.80"], ans: 2, strand: "Strand 2" },
+            { q: "Enzymes, antibodies, and actin/myosin are all examples of which category of organic macromolecule?", opts: ["Carbohydrates", "Lipids", "Proteins", "Nucleic acids"], ans: 2, strand: "Strand 2" },
+            { q: "During cellular respiration, energy released from glucose breakdown is stored in which molecule?", opts: ["DNA", "RNA", "ATP", "ADP"], ans: 2, strand: "Strand 2" },
+            { q: "What type of chemical bond involves the equal or unequal sharing of electrons between atoms?", opts: ["Ionic bond", "Hydrogen bond", "Covalent bond", "Peptide bond"], ans: 2, strand: "Strand 2" },
+            { q: "Glycogen and starch belong to which class of organic macromolecules?", opts: ["Proteins", "Carbohydrates", "Lipids", "Nucleic acids"], ans: 1, strand: "Strand 2" },
+
+            // Strand 3 (7 Qs)
+            { q: "Which cellular organelle contains hydrolytic enzymes responsible for digesting waste and worn-out cell parts?", opts: ["Golgi apparatus", "Lysosome", "Mitochondrion", "Centrosome"], ans: 1, strand: "Strand 3" },
+            { q: "Cellular membrane projections that function specifically to sweep mucus and debris along the cell surface are:", opts: ["Microvilli", "Flagella", "Cilia", "Pseudopods"], ans: 2, strand: "Strand 3" },
+            { q: "The movement of water across a selectively permeable membrane from lower solute concentration to higher solute concentration is:", opts: ["Active transport", "Simple diffusion", "Osmosis", "Filtration"], ans: 2, strand: "Strand 3" },
+            { q: "When a red blood cell is placed in a HYPERTONIC solution, what will occur?", opts: ["Water enters cell -> Lysis/Swelling", "Water leaves cell -> Crenation/Shrinkage", "No net movement", "Active transport of sodium"], ans: 1, strand: "Strand 3" },
+            { q: "Which cellular transport process requires ATP to move ions AGAINST their concentration gradient?", opts: ["Facilitated diffusion", "Sodium-Potassium pump", "Osmosis", "Filtration"], ans: 1, strand: "Strand 3" },
+            { q: "Cell division resulting in two genetically identical diploid somatic cells is known as:", opts: ["Meiosis", "Mitosis", "Apoptosis", "Cytokinesis"], ans: 1, strand: "Strand 3" },
+            { q: "Which organelle modifies, sorts, and packages proteins for secretion or cellular transport?", opts: ["Rough ER", "Golgi complex", "Ribosome", "Nucleolus"], ans: 1, strand: "Strand 3" },
+
+            // Strand 4 (5 Qs)
+            { q: "Which membrane layer directly covers the external surface of organs within closed ventral cavities?", opts: ["Parietal serous membrane", "Visceral serous membrane", "Cutaneous membrane", "Synovial membrane"], ans: 1, strand: "Strand 4" },
+            { q: "The most dangerous form of skin cancer, originating from pigment-producing cells, is:", opts: ["Basal cell carcinoma", "Squamous cell carcinoma", "Malignant melanoma", "Kaposi sarcoma"], ans: 2, strand: "Strand 4" },
+            { q: "A burn characterized by blister formation, severe pain, and damage extending through the epidermis into the dermis is:", opts: ["1st Degree (Superficial)", "2nd Degree (Partial thickness)", "3rd Degree (Full thickness)", "4th Degree"], ans: 1, strand: "Strand 4" },
+            { q: "Sebaceous glands and sudoriferous glands are classified as:", opts: ["Endocrine glands", "Exocrine glands", "Apocrine hormone glands", "Visceral glands"], ans: 1, strand: "Strand 4" },
+            { q: "Adipose tissue, cartilage, dense fibrous tissue, and bone all belong to which primary tissue group?", opts: ["Epithelial tissue", "Connective tissue", "Muscular tissue", "Nervous tissue"], ans: 1, strand: "Strand 4" },
+
+            // Strand 5 (8 Qs)
+            { q: "Cells responsible for destroying and reabsorbing bone matrix during remodeling are:", opts: ["Osteoblasts", "Osteocytes", "Osteoclasts", "Chondrocytes"], ans: 2, strand: "Strand 5" },
+            { q: "The tough, fibrous vascular membrane covering the outer surface of a long bone diaphysis is the:", opts: ["Endosteum", "Periosteum", "Articular cartilage", "Epiphyseal plate"], ans: 1, strand: "Strand 5" },
+            { q: "Which bone is part of the AXIAL skeleton?", opts: ["Clavicle", "Radius", "Sternum", "Femur"], ans: 2, strand: "Strand 5" },
+            { q: "The cervical spine consists of how many individual vertebrae?", opts: ["5", "7", "12", "4"], ans: 1, strand: "Strand 5" },
+            { q: "Freely movable joints containing a fluid-filled joint cavity (such as the knee or shoulder) are classified functionally as:", opts: ["Synarthrotic", "Amphiarthrotic", "Diarthrotic", "Cartilaginous"], ans: 2, strand: "Strand 5" },
+            { q: "Connective tissue bands that connect BONE TO BONE across a joint are called:", opts: ["Tendons", "Ligaments", "Aponeuroses", "Fascia"], ans: 1, strand: "Strand 5" },
+            { q: "An abnormal lateral S-shaped curvature of the vertebral column is termed:", opts: ["Kyphosis", "Lordosis", "Scoliosis", "Spina bifida"], ans: 2, strand: "Strand 5" },
+            { q: "Red blood cell production (hematopoiesis) occurs within which bone structure?", opts: ["Yellow marrow", "Red marrow", "Periosteum", "Compact bone"], ans: 1, strand: "Strand 5" },
+
+            // Strand 6 (10 Qs)
+            { q: "Which protein filaments form the THIN contractile strands within a sarcomere?", opts: ["Myosin", "Actin", "Troponin", "Titin"], ans: 1, strand: "Strand 6" },
+            { q: "What chemical neurotransmitter is released at the neuromuscular junction to stimulate muscle contraction?", opts: ["Dopamine", "Acetylcholine (ACh)", "Epinephrine", "Serotonin"], ans: 1, strand: "Strand 6" },
+            { q: "The attachment of a muscle tendon to the MOVABLE bone is called its:", opts: ["Origin", "Insertion", "Fixator", "Synergist"], ans: 1, strand: "Strand 6" },
+            { q: "Which muscle is the primary driver of quiet inhalation and ventilation?", opts: ["Rectus abdominis", "External intercostals", "Diaphragm", "Pectoralis major"], ans: 2, strand: "Strand 6" },
+            { q: "The hamstring group includes all of the following muscles EXCEPT:", opts: ["Biceps femoris", "Semitendinosus", "Semimembranosus", "Rectus femoris"], ans: 3, strand: "Strand 6" },
+            { q: "Stretching or tearing of muscle fibers or tendons is clinically classified as a:", opts: ["Sprain", "Strain", "Dislocation", "Subluxation"], ans: 1, strand: "Strand 6" },
+            { q: "During muscle contraction, myosin heads bind to actin to form:", opts: ["Z-discs", "Cross-bridges", "Action potentials", "Synaptic clefts"], ans: 1, strand: "Strand 6" },
+            { q: "Which muscle acts as the prime mover (agonist) for elbow extension?", opts: ["Biceps brachii", "Triceps brachii", "Brachialis", "Deltoid"], ans: 1, strand: "Strand 6" },
+            { q: "Muscle tissue exhibiting striations, involuntary control, and intercalated discs is:", opts: ["Skeletal muscle", "Smooth muscle", "Cardiac muscle", "Visceral muscle"], ans: 2, strand: "Strand 6" },
+            { q: "Ankle movement that points the foot downward (standing on tiptoes) is:", opts: ["Dorsiflexion", "Plantarflexion", "Inversion", "Eversion"], ans: 1, strand: "Strand 6" },
+
+            // Strand 7 (10 Qs)
+            { q: "Neuroglial cells responsible for forming myelin sheaths around axons in the Central Nervous System (CNS) are:", opts: ["Schwann cells", "Oligodendrocytes", "Astrocytes", "Microglia"], ans: 1, strand: "Strand 7" },
+            { q: "The vital cardiac, vasomotor, and respiratory control centers are located in which brainstem structure?", opts: ["Thalamus", "Medulla oblongata", "Cerebellum", "Pons"], ans: 1, strand: "Strand 7" },
+            { q: "Sequence the correct pathway of a simple spinal reflex arc:", opts: ["Receptor -> Motor neuron -> Interneuron -> Sensory neuron -> Effector", "Receptor -> Sensory neuron -> Interneuron -> Motor neuron -> Effector", "Effector -> Motor neuron -> Interneuron -> Sensory neuron -> Receptor", "Receptor -> Interneuron -> Sensory neuron -> Motor neuron -> Effector"], ans: 1, strand: "Strand 7" },
+            { q: "The middle, web-like layer of the meninges is the:", opts: ["Dura mater", "Arachnoid mater", "Pia mater", "Epidural space"], ans: 1, strand: "Strand 7" },
+            { q: "Photoreceptors responsible for color vision and high acuity in bright light are:", opts: ["Rods", "Cones", "Ganglion cells", "Bipolar cells"], ans: 1, strand: "Strand 7" },
+            { q: "Sequence the auditory ossicles from the tympanic membrane to the oval window:", opts: ["Incus -> Malleus -> Stapes", "Malleus -> Incus -> Stapes", "Stapes -> Incus -> Malleus", "Malleus -> Stapes -> Incus"], ans: 1, strand: "Strand 7" },
+            { q: "Which vision disorder results from an elongated eyeball causing light to focus IN FRONT of the retina?", opts: ["Hyperopia", "Myopia", "Presbyopia", "Astigmatism"], ans: 1, strand: "Strand 7" },
+            { q: "The inner ear structure containing sensory hair cells within the Organ of Corti for hearing is the:", opts: ["Semicircular canals", "Vestibule", "Cochlea", "Tympanic cavity"], ans: 2, strand: "Strand 7" },
+            { q: "Autonomic nervous system division responsible for 'Fight-or-Flight' emergency responses is the:", opts: ["Parasympathetic division", "Sympathetic division", "Somatic division", "Central division"], ans: 1, strand: "Strand 7" },
+            { q: "Cerebrospinal fluid (CSF) circulates within which meningeal space?", opts: ["Epidural space", "Subdural space", "Subarachnoid space", "Subdermal space"], ans: 2, strand: "Strand 7" },
+
+            // Strand 8 (5 Qs)
+            { q: "Antidiuretic Hormone (ADH) and Oxytocin are synthesized in the hypothalamus and stored/released by the:", opts: ["Anterior pituitary", "Posterior pituitary", "Thyroid gland", "Adrenal cortex"], ans: 1, strand: "Strand 8" },
+            { q: "Which hormone is released by pancreatic BETA cells to decrease blood glucose levels?", opts: ["Glucagon", "Insulin", "Cortisol", "Thyroxine"], ans: 1, strand: "Strand 8" },
+            { q: "Glucocorticoids (such as Cortisol) are secreted by the adrenal cortex to aid in:", opts: ["Short-term epinephrine surges", "Coping with long-term stress and anti-inflammatory action", "Calcium reabsorption", "Sodium retention"], ans: 1, strand: "Strand 8" },
+            { q: "An enlargement of the thyroid gland due to iodine deficiency or malfunction is termed a:", opts: ["Myxedema", "Goiter", "Cushing adenoma", "Acromegaly"], ans: 1, strand: "Strand 8" },
+            { q: "Which pituitary hormone directly targets the thyroid gland to stimulate T3/T4 secretion?", opts: ["ACTH", "TSH", "HGH", "FSH"], ans: 1, strand: "Strand 8" },
+
+            // Strand 9 (7 Qs)
+            { q: "Which blood component contains hemoglobin and lacks a nucleus at maturity?", opts: ["Neutrophil", "Erythrocyte", "Thrombocyte", "Monocyte"], ans: 1, strand: "Strand 9" },
+            { q: "The most abundant type of leukocyte, active in early bacterial phagocytosis, is the:", opts: ["Basophil", "Eosinophil", "Neutrophil", "Lymphocyte"], ans: 2, strand: "Strand 9" },
+            { q: "Correctly sequence the three major steps of hemostasis:", opts: ["Coagulation -> Vascular spasm -> Platelet plug", "Vascular spasm -> Platelet plug formation -> Coagulation", "Platelet plug -> Coagulation -> Vascular spasm", "Vascular spasm -> Coagulation -> Platelet plug"], ans: 1, strand: "Strand 9" },
+            { q: "An individual with Type A positive blood possesses:", opts: ["A antigens, B antibodies, Rh factor", "B antigens, A antibodies, no Rh factor", "No antigens, A and B antibodies", "A and B antigens, no antibodies"], ans: 0, strand: "Strand 9" },
+            { q: "A blood clot that breaks free from a vessel wall and travels through the bloodstream is a(n):", opts: ["Thrombus", "Embolus", "Hematoma", "Aneurysm"], ans: 1, strand: "Strand 9" },
+            { q: "Which type of anemia is caused by a lack of Vitamin B12 due to deficiency of intrinsic factor?", opts: ["Aplastic anemia", "Pernicious anemia", "Sickle cell anemia", "Hemolytic anemia"], ans: 1, strand: "Strand 9" },
+            { q: "Agranulocytes include which two types of white blood cells?", opts: ["Neutrophils & Basophils", "Monocytes & Lymphocytes", "Eosinophils & Neutrophils", "Thrombocytes & Erythrocytes"], ans: 1, strand: "Strand 9" },
+
+            // Strand 10 (3 Qs)
+            { q: "Which specific type of lymphocyte matures in the Thymus gland and mediates cell-mediated immunity?", opts: ["B-cell", "T-cell", "Plasma cell", "Monocyte"], ans: 1, strand: "Strand 10" },
+            { q: "Receiving a vaccine containing an attenuated virus produces which type of immunity?", opts: ["Naturally acquired active immunity", "Artificially acquired active immunity", "Naturally acquired passive immunity", "Artificially acquired passive immunity"], ans: 1, strand: "Strand 10" },
+            { q: "Passing maternal antibodies to a fetus across the placenta or through breast milk provides:", opts: ["Naturally acquired passive immunity", "Artificially acquired passive immunity", "Naturally acquired active immunity", "Artificially acquired active immunity"], ans: 0, strand: "Strand 10" },
+
+            // Strand 11 (5 Qs)
+            { q: "The innermost endothelial layer lining the heart chambers and valves is the:", opts: ["Epicardium", "Myocardium", "Endocardium", "Parietal pericardium"], ans: 2, strand: "Strand 11" },
+            { q: "Trace the correct pathway of blood entering the right atrium:", opts: ["Tricuspid valve -> R Ventricle -> Pulmonary semilunar valve -> Pulmonary trunk", "Bicuspid valve -> L Ventricle -> Aortic semilunar valve -> Aorta", "R Ventricle -> Tricuspid valve -> Pulmonary veins", "L Atrium -> Tricuspid valve -> R Ventricle"], ans: 0, strand: "Strand 11" },
+            { q: "The primary natural pacemaker of the cardiac conduction system is the:", opts: ["AV Node", "Sinoatrial (SA) Node", "Bundle of His", "Purkinje fibers"], ans: 1, strand: "Strand 11" },
+            { q: "Blood pressure pulse is most commonly palpated at the wrist over which artery?", opts: ["Carotid artery", "Brachial artery", "Radial artery", "Femoral artery"], ans: 2, strand: "Strand 11" },
+            { q: "Cardiac Output (CO) is calculated as:", opts: ["Heart Rate + Stroke Volume", "Heart Rate x Stroke Volume", "Systolic BP - Diastolic BP", "Stroke Volume / Heart Rate"], ans: 1, strand: "Strand 11" },
+
+            // Strand 12 (7 Qs)
+            { q: "Correctly sequence the path of air entering the respiratory system:", opts: ["Pharynx -> Larynx -> Trachea -> Primary Bronchi -> Bronchioles -> Alveoli", "Larynx -> Pharynx -> Trachea -> Bronchioles -> Alveoli", "Pharynx -> Trachea -> Larynx -> Primary Bronchi -> Alveoli", "Nose -> Larynx -> Pharynx -> Bronchi -> Trachea"], ans: 0, strand: "Strand 12" },
+            { q: "Which cartilage flap prevents food and liquids from entering the larynx during swallowing?", opts: ["Thyroid cartilage", "Cricoid cartilage", "Epiglottis", "Arytenoid cartilage"], ans: 2, strand: "Strand 12" },
+            { q: "The volume of air inhaled or exhaled during a single normal, quiet breath (~500 mL) is:", opts: ["Inspiratory Reserve Volume (IRV)", "Residual Volume (RV)", "Tidal Volume (TV)", "Expiratory Reserve Volume (ERV)"], ans: 2, strand: "Strand 12" },
+            { q: "Gas exchange occurring between blood in systemic capillaries and tissue cells is termed:", opts: ["Ventilation", "External respiration", "Internal respiration", "Cellular respiration"], ans: 2, strand: "Strand 12" },
+            { q: "Primary chemical stimulus that increases respiratory rate and depth is an elevated blood concentration of:", opts: ["Oxygen (O2)", "Carbon dioxide (CO2)", "Nitrogen (N2)", "Glucose"], ans: 1, strand: "Strand 12" },
+            { q: "Amount of air remaining in lungs even after a maximal forced exhalation is the:", opts: ["Tidal volume", "Residual volume", "Expiratory reserve volume", "Vital capacity"], ans: 1, strand: "Strand 12" },
+            { q: "Outer layer of serous membrane lining the wall of the thoracic cavity is the:", opts: ["Visceral pleura", "Parietal pleura", "Pericardium", "Peritoneum"], ans: 1, strand: "Strand 12" },
+
+            // Strand 13 (7 Qs)
+            { q: "Which structure is considered an ACCESSORY organ of the digestive system?", opts: ["Stomach", "Esophagus", "Liver", "Duodenum"], ans: 2, strand: "Strand 13" },
+            { q: "Hydrochloric acid (HCl) in gastric juice is secreted by which stomach mucosal cells?", opts: ["Chief cells", "Parietal cells", "Goblet cells", "Acinar cells"], ans: 1, strand: "Strand 13" },
+            { q: "Bile performs which specific function in lipid digestion?", opts: ["Enzymatic cleavage of amino acids", "Emulsification of large fat droplets", "Absorption of glucose", "Production of pepsin"], ans: 1, strand: "Strand 13" },
+            { q: "Correctly sequence the three sections of the small intestine from proximal to distal:", opts: ["Jejunum -> Duodenum -> Ileum", "Duodenum -> Jejunum -> Ileum", "Ileum -> Jejunum -> Duodenum", "Duodenum -> Ileum -> Jejunum"], ans: 1, strand: "Strand 13" },
+            { q: "Local mixing contractions in the small intestine that mix chyme with digestive enzymes are:", opts: ["Peristalsis", "Segmentation", "Mastication", "Deglutition"], ans: 1, strand: "Strand 13" },
+            { q: "Which portion of the tooth contains blood vessels and nerves?", opts: ["Enamel", "Dentin", "Pulp cavity", "Periodontal ligament"], ans: 2, strand: "Strand 13" },
+            { q: "Chief cells of the gastric glands secrete which inactive proenzyme?", opts: ["Pepsinogen", "Trypsin", "Amylase", "Lipase"], ans: 0, strand: "Strand 13" },
+
+            // Strand 14 (8 Qs)
+            { q: "Microscopic functional units of the kidney responsible for urine formation are:", opts: ["Calyces", "Renal pyramids", "Nephrons", "Renal pelvis"], ans: 2, strand: "Strand 14" },
+            { q: "Correctly sequence the flow of filtrate through the nephron tubule:", opts: ["Bowman's capsule -> Proximal convoluted tubule -> Loop of Henle -> Distal convoluted tubule -> Collecting duct", "Bowman's capsule -> Loop of Henle -> Proximal tubule -> Distal tubule", "Glomerulus -> Distal tubule -> Loop of Henle -> Proximal tubule", "Collecting duct -> Loop of Henle -> Bowman's capsule"], ans: 0, strand: "Strand 14" },
+            { q: "Which process of urine formation moves substances from peritubular blood into the renal tubule filtrate?", opts: ["Glomerular filtration", "Tubular reabsorption", "Tubular secretion", "Osmotic shift"], ans: 2, strand: "Strand 14" },
+            { q: "The presence of glucose in urine (glycosuria) indicates:", opts: ["Normal kidney function", "High blood sugar exceeding renal threshold (Diabetes)", "Urinary tract bacterial infection", "Renal stone formation"], ans: 1, strand: "Strand 14" },
+            { q: "Kidney structure containing renal pyramids and columns is the inner:", opts: ["Renal cortex", "Renal medulla", "Renal capsule", "Renal pelvis"], ans: 1, strand: "Strand 14" },
+            { q: "Urination is clinically referred to as:", opts: ["Deglutition", "Micturition", "Maceration", "Emulsification"], ans: 1, strand: "Strand 14" },
+            { q: "Which hormone increases water reabsorption in the collecting ducts, producing concentrated urine?", opts: ["Aldosterone", "Antidiuretic Hormone (ADH)", "Renin", "ANP"], ans: 1, strand: "Strand 14" },
+            { q: "Inflammation of the renal glomeruli usually caused by an autoimmune response is:", opts: ["Cystitis", "Pyelonephritis", "Glomerulonephritis", "Urethritis"], ans: 2, strand: "Strand 14" },
+
+            // Strand 15 (8 Qs)
+            { q: "Which layer of the endometrium is shed during the menstrual phase of the uterine cycle?", opts: ["Myometrium", "Stratum basalis", "Stratum functionalis", "Perimetrium"], ans: 2, strand: "Strand 15" },
+            { q: "Spermatogenesis produces how many functional sperm cells from one primary spermatocyte?", opts: ["1", "2", "4", "8"], ans: 2, strand: "Strand 15" },
+            { q: "Fertilization of the ovum by a sperm cell normally occurs within which structure?", opts: ["Uterus", "Uterine (Fallopian) tube ampulla", "Ovary", "Vagina"], ans: 1, strand: "Strand 15" },
+            { q: "Correctly sequence human development stages following fertilization:", opts: ["Zygote -> Blastocyst -> Implantation -> Embryo -> Fetus", "Embryo -> Zygote -> Fetus -> Implantation", "Blastocyst -> Zygote -> Fetus -> Embryo", "Zygote -> Fetus -> Embryo -> Blastocyst"], ans: 0, strand: "Strand 15" },
+            { q: "Stage 1 of labor culminates in complete dilation of the cervix to:", opts: ["5 cm", "8 cm", "10 cm", "12 cm"], ans: 2, strand: "Strand 15" },
+            { q: "Hormone responsible for male secondary sex characteristics and spermatogenesis is:", opts: ["Estrogen", "Progesterone", "Testosterone", "LH"], ans: 2, strand: "Strand 15" },
+            { q: "Surgical removal of the uterus is termed a:", opts: ["Oophorectomy", "Salpingectomy", "Hysterectomy", "Mastopexy"], ans: 2, strand: "Strand 15" },
+            { q: "Growth of endometrial tissue outside the uterine cavity is clinically diagnosed as:", opts: ["PCOS", "Endometriosis", "Pelvic Inflammatory Disease", "Fibroids"], ans: 1, strand: "Strand 15" }
+        ];
+
+        // STATE VARIABLES
+        let activeTab = 'dictionary';
+        let currentFlashcards = [];
+        let currentCardIdx = 0;
+        let drillIndex = 0;
+        let drillScore = 0;
+        let drillData = [];
+
+        let examQuestions = [];
+        let currentExamIdx = 0;
+        let userExamAnswers = [];
+
+        // INITIALIZATION
+        window.addEventListener('DOMContentLoaded', () => {
+            populateStrandSelects();
+            renderDictionary();
+            loadDiagram();
+        });
+
+        function switchTab(tabId) {
+            activeTab = tabId;
+            document.querySelectorAll('.tab-content').forEach(el => el.classList.add('hidden'));
+            document.querySelectorAll('.nav-btn').forEach(btn => {
+                btn.className = 'nav-btn px-4 py-2.5 rounded-lg text-sm font-semibold whitespace-nowrap transition-all text-slate-600 hover:bg-slate-100';
+            });
+
+            document.getElementById(`section-${tabId}`).classList.remove('hidden');
+            const activeBtn = document.getElementById(`tab-${tabId}`);
+            activeBtn.className = 'nav-btn px-4 py-2.5 rounded-lg text-sm font-semibold whitespace-nowrap transition-all text-indigo-700 bg-indigo-50 border border-indigo-200';
+
+            if (tabId === 'flashcards') initFlashcards();
+            if (tabId === 'drill') startSpeedDrill();
+            if (tabId === 'diagrams') loadDiagram();
+        }
+
+        function populateStrandSelects() {
+            const strandFilter = document.getElementById('strandFilter');
+            const flashcardStrand = document.getElementById('flashcardStrand');
+
+            apStrandsData.forEach(s => {
+                const opt1 = document.createElement('option');
+                opt1.value = s.id;
+                opt1.textContent = s.title;
+                strandFilter.appendChild(opt1);
+
+                const opt2 = document.createElement('option');
+                opt2.value = s.id;
+                opt2.textContent = s.title;
+                flashcardStrand.appendChild(opt2);
+            });
+        }
+
+        function renderDictionary() {
+            const container = document.getElementById('dictionaryContainer');
+            const filter = document.getElementById('strandFilter').value;
+            const query = document.getElementById('dictSearch').value.toLowerCase();
+
+            container.innerHTML = '';
+
+            apStrandsData.forEach(strand => {
+                if (filter !== 'all' && strand.id !== filter) return;
+
+                let html = `
+                    <div class="bg-white rounded-2xl border border-slate-200 shadow-sm overflow-hidden">
+                        <div class="bg-slate-800 text-white p-4 px-6 flex items-center justify-between">
+                            <h3 class="font-bold text-lg text-indigo-400">${strand.title}</h3>
+                            <span class="text-xs bg-slate-700 text-slate-300 px-3 py-1 rounded-full hidden sm:inline-block">${strand.desc}</span>
+                        </div>
+                        <div class="p-6">
+                            <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-3">
+                                ${strand.terms.filter(t => t.t.toLowerCase().includes(query) || t.d.toLowerCase().includes(query)).map(t => `
+                                    <div class="p-3 bg-indigo-50/50 border border-indigo-100 rounded-xl">
+                                        <strong class="text-indigo-950 block text-sm font-bold">${t.t}</strong>
+                                        <span class="text-xs text-slate-600 mt-1 block">${t.d}</span>
+                                    </div>
+                                `).join('')}
+                            </div>
+                        </div>
+                    </div>
+                `;
+                container.innerHTML += html;
+            });
+        }
+
+        function filterDictionary() {
+            renderDictionary();
+        }
+
+        // INTERACTIVE DIAGRAMS LOGIC
+        function loadDiagram() {
+            const key = document.getElementById('diagramSelect').value;
+            const data = diagramData[key];
+
+            document.getElementById('diagStrandLabel').textContent = data.strand;
+            document.getElementById('diagTitle').textContent = data.title;
+            document.getElementById('diagDescription').textContent = "Click any marker pin on the diagram to inspect its anatomy.";
+            document.getElementById('diagExamTip').textContent = data.tip;
+
+            const canvas = document.getElementById('diagramCanvas');
+            canvas.innerHTML = `<div class="absolute text-slate-700 text-xs font-bold uppercase tracking-widest pointer-events-none">${data.title}</div>`;
+
+            data.markers.forEach(m => {
+                const btn = document.createElement('button');
+                btn.className = "absolute w-9 h-9 rounded-full bg-indigo-600 border-2 border-white text-white font-bold text-sm flex items-center justify-center shadow-lg hover:scale-110 hover:bg-indigo-500 transition-all z-10 focus:ring-4 focus:ring-indigo-400/50";
+                btn.style.top = m.top;
+                btn.style.left = m.left;
+                btn.textContent = m.id;
+                btn.onclick = () => {
+                    document.getElementById('diagTitle').textContent = `${m.id}. ${m.name}`;
+                    document.getElementById('diagDescription').textContent = m.desc;
+                };
+                canvas.appendChild(btn);
+            });
+        }
+
+        // FLASHCARDS LOGIC
+        function initFlashcards() {
+            const filter = document.getElementById('flashcardStrand').value;
+            currentFlashcards = [];
+
+            apStrandsData.forEach(s => {
+                if (filter !== 'all' && s.id !== filter) return;
+                s.terms.forEach(t => currentFlashcards.push({ term: t.t, def: t.d, cat: s.title }));
+            });
+
+            currentFlashcards.sort(() => Math.random() - 0.5);
+            currentCardIdx = 0;
+            showCard();
+        }
+
+        function showCard() {
+            if (currentFlashcards.length === 0) return;
+            const card = currentFlashcards[currentCardIdx];
+            document.getElementById('cardElement').classList.remove('card-flipped');
+            document.getElementById('cardTerm').textContent = card.term;
+            document.getElementById('cardDef').textContent = card.def;
+            document.getElementById('cardCategory').textContent = card.cat;
+            document.getElementById('cardCounter').textContent = `Card ${currentCardIdx + 1} of ${currentFlashcards.length}`;
+        }
+
+        function flipCard() {
+            document.getElementById('cardElement').classList.toggle('card-flipped');
+        }
+
+        function nextCard() {
+            if (currentCardIdx < currentFlashcards.length - 1) {
+                currentCardIdx++;
+                showCard();
+            }
+        }
+
+        function prevCard() {
+            if (currentCardIdx > 0) {
+                currentCardIdx--;
+                showCard();
+            }
+        }
+
+        function markCard(gotIt) {
+            nextCard();
+        }
+
+        // SPEED DRILL LOGIC
+        function startSpeedDrill() {
+            drillData = [];
+            apStrandsData.forEach(s => {
+                s.terms.forEach(t => drillData.push({ p: t.t, a: t.d }));
+            });
+            drillData.sort(() => Math.random() - 0.5);
+            drillIndex = 0;
+            drillScore = 0;
+            showDrillQ();
+        }
+
+        function showDrillQ() {
+            if (drillIndex >= 10 || drillIndex >= drillData.length) {
+                alert(`Speed drill finished! Score: ${drillScore}/10`);
+                return;
+            }
+
+            const current = drillData[drillIndex];
+            document.getElementById('drillPrompt').textContent = current.p;
+            document.getElementById('drillNum').textContent = `${drillIndex + 1}/10`;
+            document.getElementById('drillScore').textContent = drillScore;
+
+            const choices = [current.a];
+            while (choices.length < 4) {
+                const rand = drillData[Math.floor(Math.random() * drillData.length)].a;
+                if (!choices.includes(rand)) choices.push(rand);
+            }
+            choices.sort(() => Math.random() - 0.5);
+
+            const container = document.getElementById('drillOptions');
+            container.innerHTML = '';
+            choices.forEach(c => {
+                const btn = document.createElement('button');
+                btn.className = "w-full text-left p-3 border border-slate-200 rounded-lg hover:bg-indigo-50 hover:border-indigo-300 font-medium text-slate-700 text-xs sm:text-sm transition";
+                btn.textContent = c;
+                btn.onclick = () => {
+                    if (c === current.a) drillScore++;
+                    drillIndex++;
+                    showDrillQ();
+                };
+                container.appendChild(btn);
+            });
+        }
+
+        // STATE EXAM SIMULATOR LOGIC
+        function startExam() {
+            examQuestions = [...apExamQuestions].sort(() => Math.random() - 0.5);
+            currentExamIdx = 0;
+            userExamAnswers = new Array(examQuestions.length).fill(null);
+
+            document.getElementById('examContainer').classList.remove('hidden');
+            document.getElementById('examResults').classList.add('hidden');
+            renderExamQ();
+        }
+
+        function renderExamQ() {
+            const q = examQuestions[currentExamIdx];
+            document.getElementById('examProgress').textContent = `Question ${currentExamIdx + 1} of ${examQuestions.length}`;
+            document.getElementById('examStrandTag').textContent = q.strand;
+            document.getElementById('examQuestionText').textContent = q.q;
+
+            const container = document.getElementById('examOptionsContainer');
+            container.innerHTML = '';
+
+            q.opts.forEach((opt, idx) => {
+                const isSelected = userExamAnswers[currentExamIdx] === idx;
+                const btn = document.createElement('button');
+                btn.className = `w-full text-left p-4 rounded-xl border text-sm font-semibold transition flex items-center justify-between ${
+                    isSelected ? 'bg-indigo-50 border-indigo-500 text-indigo-900 ring-2 ring-indigo-500/20' : 'bg-slate-50 border-slate-200 text-slate-700 hover:bg-slate-100'
+                }`;
+                btn.innerHTML = `<span>${String.fromCharCode(65 + idx)}. ${opt}</span> ${isSelected ? '<i class="fa-solid fa-circle-check text-indigo-600"></i>' : ''}`;
+                btn.onclick = () => selectExamOpt(idx);
+                container.appendChild(btn);
+            });
+
+            document.getElementById('btnPrevQ').disabled = currentExamIdx === 0;
+            document.getElementById('btnNextQ').textContent = currentExamIdx === examQuestions.length - 1 ? "Submit State Exam" : "Next Question";
+        }
+
+        function selectExamOpt(idx) {
+            userExamAnswers[currentExamIdx] = idx;
+            renderExamQ();
+        }
+
+        function prevExamQ() {
+            if (currentExamIdx > 0) {
+                currentExamIdx--;
+                renderExamQ();
+            }
+        }
+
+        function nextExamQ() {
+            if (currentExamIdx < examQuestions.length - 1) {
+                currentExamIdx++;
+                renderExamQ();
+            } else {
+                finishExam();
+            }
+        }
+
+        function finishExam() {
+            let correct = 0;
+            const strandScores = {};
+
+            apStrandsData.forEach(s => strandScores[s.title.split(':')[0]] = { correct: 0, total: 0 });
+
+            examQuestions.forEach((q, idx) => {
+                const sKey = q.strand;
+                if (!strandScores[sKey]) strandScores[sKey] = { correct: 0, total: 0 };
+                strandScores[sKey].total++;
+
+                if (userExamAnswers[idx] === q.ans) {
+                    correct++;
+                    strandScores[sKey].correct++;
+                }
+            });
+
+            const scorePct = Math.round((correct / examQuestions.length) * 100);
+            const passed = scorePct >= 72;
+
+            document.getElementById('examContainer').classList.add('hidden');
+            document.getElementById('examResults').classList.remove('hidden');
+
+            const badge = document.getElementById('badgePassFail');
+            badge.textContent = passed ? "PASS" : "NEEDS REVIEW";
+            badge.className = `inline-block px-4 py-1.5 rounded-full font-bold text-sm ${passed ? 'bg-emerald-100 text-emerald-800' : 'bg-rose-100 text-rose-800'}`;
+
+            document.getElementById('finalScoreText').textContent = `Your Score: ${scorePct}% (${correct}/${examQuestions.length})`;
+            document.getElementById('scoreSubtext').textContent = passed ? "Congratulations! You passed the State Medical A&P Practice Exam." : "Review the strands below and retake the test.";
+
+            const diagContainer = document.getElementById('strandDiagnostics');
+            diagContainer.innerHTML = '';
+
+            Object.keys(strandScores).forEach(sKey => {
+                const data = strandScores[sKey];
+                if (data.total === 0) return;
+                const pct = Math.round((data.correct / data.total) * 100);
+
+                diagContainer.innerHTML += `
+                    <div>
+                        <div class="flex justify-between text-xs font-semibold mb-1">
+                            <span class="text-slate-700">${sKey}</span>
+                            <span class="${pct >= 72 ? 'text-emerald-600' : 'text-rose-600'}">${data.correct}/${data.total} (${pct}%)</span>
+                        </div>
+                        <div class="w-full bg-slate-100 rounded-full h-2 overflow-hidden">
+                            <div class="h-2 rounded-full ${pct >= 72 ? 'bg-emerald-500' : 'bg-rose-500'}" style="width: ${pct}%"></div>
+                        </div>
+                    </div>
+                `;
+            });
+        }
+    </script>
+</body>
+</html>
