@@ -37,7 +37,7 @@
                         🧬 Medical A&P Certification Prep Center
                     </h1>
                     <p class="text-indigo-100 text-sm sm:text-base mt-1 max-w-2xl">
-                        Self-Paced • 15 Units • Reliable Vector Diagram Labeller & Practice Exam
+                        Self-Paced • 15 Units • Dynamic Diagram Labeller & Practice Exam
                     </p>
                 </div>
                 <div class="flex items-center gap-3 self-start md:self-auto bg-slate-800/60 p-3 rounded-xl border border-slate-700/60 backdrop-blur">
@@ -66,7 +66,7 @@
                     <i class="fa-solid fa-book-bookmark mr-2"></i>Standards Dictionary
                 </button>
                 <button onclick="switchTab('diagrams')" id="tab-diagrams" class="nav-btn px-4 py-2.5 rounded-lg text-sm font-semibold whitespace-nowrap transition-all text-slate-600 hover:bg-slate-100">
-                    <i class="fa-solid fa-diagram-project mr-2"></i>Vector Diagram Labeller
+                    <i class="fa-solid fa-diagram-project mr-2"></i>Diagram Labeller
                 </button>
                 <button onclick="switchTab('flashcards')" id="tab-flashcards" class="nav-btn px-4 py-2.5 rounded-lg text-sm font-semibold whitespace-nowrap transition-all text-slate-600 hover:bg-slate-100">
                     <i class="fa-solid fa-layer-group mr-2"></i>Flashcard Decks
@@ -108,31 +108,21 @@
         <section id="section-diagrams" class="tab-content hidden space-y-6">
             <div class="bg-white p-6 rounded-2xl shadow-sm border border-slate-200 flex flex-col md:flex-row md:items-center justify-between gap-4">
                 <div>
-                    <h2 class="text-xl font-bold text-slate-900">System-by-System Vector Diagram Labeller</h2>
-                    <p class="text-slate-500 text-sm">Self-contained vector diagrams that load reliably in Canvas and GitHub Pages.</p>
+                    <h2 class="text-xl font-bold text-slate-900">System-by-System Diagram Labeller</h2>
+                    <p class="text-slate-500 text-sm">Interactive visual anatomical diagrams with clickable hotspot markers.</p>
                 </div>
                 <select id="diagramSelect" onchange="loadDiagram()" class="px-4 py-2.5 border border-indigo-200 bg-indigo-50 text-indigo-900 font-semibold rounded-xl focus:ring-2 focus:ring-indigo-500 text-sm">
                     <option value="quadrants">Strand 1: Abdominal Quadrants & Organs</option>
-                    <option value="cavities">Strand 1: Body Cavities & Membranes</option>
                     <option value="skin">Strand 4: Integumentary Skin Layers</option>
                     <option value="longbone">Strand 5: Long Bone Anatomical Features</option>
-                    <option value="sarcomere">Strand 6: Sarcomere Microanatomy</option>
                     <option value="brain">Strand 7: Central Brain Structures</option>
-                    <option value="eye">Strand 7: Eye Optics & Tunics</option>
-                    <option value="ear">Strand 7: Ear Cavities & Ossicles</option>
-                    <option value="endocrine">Strand 8: Major Endocrine Glands</option>
-                    <option value="heart">Strand 11: Heart Chambers & Flow</option>
-                    <option value="respiratory">Strand 12: Respiratory Airway Tract</option>
-                    <option value="digestive">Strand 13: Digestive Canal & Organs</option>
-                    <option value="nephron">Strand 14: Nephron Microanatomy</option>
-                    <option value="uterus">Strand 15: Reproductive System</option>
                 </select>
             </div>
 
             <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
                 <!-- Diagram Display Canvas -->
                 <div class="lg:col-span-2 bg-slate-900 rounded-2xl p-6 text-white relative flex items-center justify-center min-h-[440px] shadow-xl overflow-hidden border border-slate-700" id="diagramCanvas">
-                    <!-- Dynamic Vector Graphics & Pins -->
+                    <!-- Dynamic Graphic & Pins -->
                 </div>
 
                 <!-- Info Sidebar -->
@@ -145,7 +135,7 @@
 
                     <div class="bg-slate-50 p-4 rounded-xl border border-slate-200 text-xs text-slate-500 space-y-1">
                         <strong class="text-slate-800 block"><i class="fa-solid fa-lightbulb text-amber-500 mr-1.5"></i>State Exam Focus:</strong>
-                        <span id="diagExamTip">Pay close attention to organ placements across quadrants and internal heart valve pathways.</span>
+                        <span id="diagExamTip">Pay close attention to organ placements across quadrants and internal pathways.</span>
                     </div>
                 </div>
             </div>
@@ -409,262 +399,55 @@
             }
         ];
 
-        // RELIABLE EMBEDDED SVG DIAGRAM DATASETS (ZERO EXTERNAL DEPENDENCIES)
+        // IMAGE-BASED DIAGRAM DATASETS
         const diagramData = {
             quadrants: {
                 strand: "Strand 1",
                 title: "Abdominal Quadrants & Organs",
                 tip: "State exams ask which quadrant holds the appendix (RLQ), spleen (LUQ), or gallbladder (RUQ).",
-                svg: `<svg viewBox="0 0 400 300" class="w-full max-h-[360px]">
-                    <rect width="400" height="300" fill="#0f172a"/>
-                    <rect x="50" y="20" width="300" height="260" rx="20" fill="#1e293b" stroke="#334155" stroke-width="2"/>
-                    <line x1="200" y1="20" x2="200" y2="280" stroke="#f43f5e" stroke-width="3" stroke-dasharray="6"/>
-                    <line x1="50" y1="150" x2="350" y2="150" stroke="#f43f5e" stroke-width="3" stroke-dasharray="6"/>
-                    <text x="125" y="80" fill="#94a3b8" font-size="14" font-weight="bold" text-anchor="middle">RUQ</text>
-                    <text x="275" y="80" fill="#94a3b8" font-size="14" font-weight="bold" text-anchor="middle">LUQ</text>
-                    <text x="125" y="220" fill="#94a3b8" font-size="14" font-weight="bold" text-anchor="middle">RLQ</text>
-                    <text x="275" y="220" fill="#94a3b8" font-size="14" font-weight="bold" text-anchor="middle">LLQ</text>
-                </svg>`,
+                imgSrc: "https://thumb.wikimedia.org/wikipedia/commons/thumb/c/c9/Abdominal_Quadrant_Regions.jpg/500px-Abdominal_Quadrant_Regions.jpg",
+                altText: "Abdominal Quadrants and Regions Diagram",
                 markers: [
-                    { id: 1, top: "30%", left: "32%", name: "Right Upper Quadrant (RUQ)", desc: "Contains Liver, Gallbladder, and Right Kidney." },
-                    { id: 2, top: "30%", left: "68%", name: "Left Upper Quadrant (LUQ)", desc: "Contains Stomach, Spleen, Left Kidney, and Pancreas." },
-                    { id: 3, top: "70%", left: "32%", name: "Right Lower Quadrant (RLQ)", desc: "Contains Cecum, Appendix, and Right Ovary." },
-                    { id: 4, top: "70%", left: "68%", name: "Left Lower Quadrant (LLQ)", desc: "Contains Left Ovary and Sigmoid Colon." }
-                ]
-            },
-            cavities: {
-                strand: "Strand 1",
-                title: "Body Cavities & Internal Membranes",
-                tip: "Dorsal cavity includes Cranial & Vertebral. Ventral includes Thoracic & Abdominopelvic.",
-                svg: `<svg viewBox="0 0 400 300" class="w-full max-h-[360px]">
-                    <rect width="400" height="300" fill="#0f172a"/>
-                    <!-- Silhouette -->
-                    <path d="M200,30 Q220,30 220,60 Q240,100 230,160 Q240,220 220,280 L180,280 Q160,220 170,160 Q160,100 180,60 Q180,30 200,30 Z" fill="#334155"/>
-                    <!-- Cavities -->
-                    <circle cx="200" cy="50" r="15" fill="#6366f1" opacity="0.8"/>
-                    <ellipse cx="200" cy="110" rx="25" ry="20" fill="#38bdf8" opacity="0.8"/>
-                    <ellipse cx="200" cy="175" rx="28" ry="30" fill="#10b981" opacity="0.8"/>
-                    <ellipse cx="200" cy="240" rx="22" ry="18" fill="#f59e0b" opacity="0.8"/>
-                </svg>`,
-                markers: [
-                    { id: 1, top: "16%", left: "50%", name: "Cranial Cavity", desc: "Houses the Brain (Dorsal cavity)." },
-                    { id: 2, top: "36%", left: "50%", name: "Thoracic Cavity / Mediastinum", desc: "Contains Lungs (Pleural), Heart (Pericardial), Esophagus, and Thymus." },
-                    { id: 3, top: "58%", left: "50%", name: "Abdominal Cavity", desc: "Contains Stomach, Liver, Spleen, Kidneys, Pancreas, and Intestines." },
-                    { id: 4, top: "80%", left: "50%", name: "Pelvic Cavity", desc: "Contains Urinary Bladder, Reproductive organs, and Rectum." }
+                    { id: 1, top: "25%", left: "65%", name: "Right Upper Quadrant (RUQ)", desc: "Contains Liver, Gallbladder, and Right Kidney." },
+                    { id: 2, top: "25%", left: "80%", name: "Left Upper Quadrant (LUQ)", desc: "Contains Stomach, Spleen, Left Kidney, and Pancreas." },
+                    { id: 3, top: "60%", left: "65%", name: "Right Lower Quadrant (RLQ)", desc: "Contains Cecum, Appendix, and Right Ovary." },
+                    { id: 4, top: "60%", left: "80%", name: "Left Lower Quadrant (LLQ)", desc: "Contains Left Ovary and Sigmoid Colon." }
                 ]
             },
             skin: {
                 strand: "Strand 4",
                 title: "Integumentary System (Skin Layers)",
                 tip: "Epidermis is avascular; Dermis contains blood vessels, nerves, sebaceous & sweat glands.",
-                svg: `<svg viewBox="0 0 400 300" class="w-full max-h-[360px]">
-                    <rect width="400" height="300" fill="#0f172a"/>
-                    <!-- Epidermis -->
-                    <rect x="40" y="30" width="320" height="50" fill="#f43f5e" rx="6" opacity="0.8"/>
-                    <!-- Dermis -->
-                    <rect x="40" y="85" width="320" height="120" fill="#6366f1" rx="6" opacity="0.8"/>
-                    <!-- Hypodermis -->
-                    <rect x="40" y="210" width="320" height="60" fill="#f59e0b" rx="6" opacity="0.8"/>
-                    <text x="200" y="60" fill="#fff" font-size="14" font-weight="bold" text-anchor="middle">EPIDERMIS</text>
-                    <text x="200" y="150" fill="#fff" font-size="16" font-weight="bold" text-anchor="middle">DERMIS</text>
-                    <text x="200" y="245" fill="#fff" font-size="14" font-weight="bold" text-anchor="middle">HYPODERMIS / SUBCUTANEOUS</text>
-                </svg>`,
+                imgSrc: "https://nurseslabs.com/wp-content/uploads/2017/06/integumentary-system-anatomy.png",
+                altText: "Integumentary System Anatomy Diagram",
                 markers: [
-                    { id: 1, top: "18%", left: "80%", name: "Epidermis", desc: "Avascular superficial layer composed of stratified squamous epithelium." },
-                    { id: 2, top: "48%", left: "80%", name: "Dermis", desc: "Vascular true skin containing hair follicles, sweat/sebaceous glands, and nerve endings." },
-                    { id: 3, top: "80%", left: "80%", name: "Subcutaneous (Hypodermis)", desc: "Adipose tissue layer beneath dermis storing fat and anchoring skin." }
+                    { id: 1, top: "20%", left: "30%", name: "Epidermis", desc: "Avascular superficial layer composed of stratified squamous epithelium." },
+                    { id: 2, top: "45%", left: "30%", name: "Dermis", desc: "Vascular true skin containing hair follicles, sweat/sebaceous glands, and nerve endings." },
+                    { id: 3, top: "80%", left: "30%", name: "Subcutaneous (Hypodermis)", desc: "Adipose tissue layer beneath dermis storing fat and anchoring skin." }
                 ]
             },
             longbone: {
                 strand: "Strand 5",
                 title: "Anatomy of a Long Bone",
                 tip: "Diaphysis = shaft; Epiphysis = ends; Periosteum = outer membrane; Medullary cavity = yellow marrow.",
-                svg: `<svg viewBox="0 0 400 300" class="w-full max-h-[360px]">
-                    <rect width="400" height="300" fill="#0f172a"/>
-                    <rect x="80" y="120" width="240" height="60" rx="8" fill="#e2e8f0"/>
-                    <circle cx="80" cy="150" r="45" fill="#cbd5e1"/>
-                    <circle cx="320" cy="150" r="45" fill="#cbd5e1"/>
-                    <rect x="110" y="135" width="180" height="30" rx="4" fill="#f59e0b"/>
-                </svg>`,
+                imgSrc: "https://simplenursing.com/wp-content/uploads/2026/05/Long-Bone-Anatomy.png",
+                altText: "Long Bone Anatomy Diagram",
                 markers: [
-                    { id: 1, top: "50%", left: "20%", name: "Epiphysis", desc: "Expanded ends of long bone containing spongy bone and red marrow (hematopoiesis)." },
+                    { id: 1, top: "15%", left: "50%", name: "Epiphysis", desc: "Expanded ends of long bone containing spongy bone and red marrow (hematopoiesis)." },
                     { id: 2, top: "50%", left: "50%", name: "Diaphysis & Medullary Cavity", desc: "Compact bone shaft containing medullary cavity filled with yellow marrow (fat)." },
-                    { id: 3, top: "35%", left: "50%", name: "Periosteum", desc: "Tough fibrous vascular membrane surrounding compact bone shaft." }
-                ]
-            },
-            sarcomere: {
-                strand: "Strand 6",
-                title: "Sarcomere Microanatomy",
-                tip: "Actin = thin filament; Myosin = thick filament. Cross-bridges form during contraction stimulated by ACh.",
-                svg: `<svg viewBox="0 0 400 300" class="w-full max-h-[360px]">
-                    <rect width="400" height="300" fill="#0f172a"/>
-                    <!-- Z-lines -->
-                    <line x1="60" y1="40" x2="60" y2="260" stroke="#f43f5e" stroke-width="6"/>
-                    <line x1="340" y1="40" x2="340" y2="260" stroke="#f43f5e" stroke-width="6"/>
-                    <!-- Myosin Thick -->
-                    <rect x="120" y="110" width="160" height="20" fill="#6366f1" rx="4"/>
-                    <rect x="120" y="170" width="160" height="20" fill="#6366f1" rx="4"/>
-                    <!-- Actin Thin -->
-                    <line x1="60" y1="90" x2="200" y2="90" stroke="#38bdf8" stroke-width="4"/>
-                    <line x1="60" y1="210" x2="200" y2="210" stroke="#38bdf8" stroke-width="4"/>
-                    <line x1="340" y1="90" x2="200" y2="90" stroke="#38bdf8" stroke-width="4"/>
-                    <line x1="340" y1="210" x2="200" y2="210" stroke="#38bdf8" stroke-width="4"/>
-                </svg>`,
-                markers: [
-                    { id: 1, top: "42%", left: "50%", name: "Myosin (Thick Filament)", desc: "Contains myosin heads that bind to actin forming cross-bridges." },
-                    { id: 2, top: "30%", left: "30%", name: "Actin (Thin Filament)", desc: "Contractile thin protein filaments anchored to Z-discs." },
-                    { id: 3, top: "50%", left: "15%", name: "Z-Disc / Z-Line", desc: "Boundary of sarcomere anchoring thin actin filaments." }
+                    { id: 3, top: "35%", left: "30%", name: "Periosteum", desc: "Tough fibrous vascular membrane surrounding compact bone shaft." }
                 ]
             },
             brain: {
                 strand: "Strand 7",
                 title: "Central Brain Structure & Brainstem",
                 tip: "Cerebrum = higher thought; Cerebellum = balance; Medulla = vital cardiac & respiratory centers.",
-                svg: `<svg viewBox="0 0 400 300" class="w-full max-h-[360px]">
-                    <rect width="400" height="300" fill="#0f172a"/>
-                    <!-- Cerebrum -->
-                    <path d="M100,160 Q80,80 180,50 Q280,50 300,120 Q310,180 240,180 Q160,180 100,160 Z" fill="#6366f1" opacity="0.8"/>
-                    <!-- Cerebellum -->
-                    <circle cx="260" cy="210" r="35" fill="#f43f5e" opacity="0.8"/>
-                    <!-- Brainstem -->
-                    <rect x="180" y="180" width="35" height="80" rx="8" fill="#10b981" opacity="0.8"/>
-                </svg>`,
+                imgSrc: "https://www.news-medical.net/image-handler/picture/2020/10/shutterstock_284175866.jpg",
+                altText: "Human Brain Structure Diagram",
                 markers: [
-                    { id: 1, top: "32%", left: "50%", name: "Cerebrum", desc: "Largest brain region responsible for voluntary thought, sensory interpretation, and reasoning." },
-                    { id: 2, top: "70%", left: "65%", name: "Cerebellum", desc: "Posterior brain region regulating motor coordination, posture, and balance." },
-                    { id: 3, top: "72%", left: "48%", name: "Brain Stem (Medulla Oblongata)", desc: "Controls vital heart rate, blood pressure, and breathing centers." }
-                ]
-            },
-            eye: {
-                strand: "Strand 7",
-                title: "Eye Tunics & Optical Structures",
-                tip: "Sclera = fibrous outer tunic; Choroid = vascular middle layer; Retina = nervous inner photo tunic.",
-                svg: `<svg viewBox="0 0 400 300" class="w-full max-h-[360px]">
-                    <rect width="400" height="300" fill="#0f172a"/>
-                    <circle cx="200" cy="150" r="100" fill="#1e293b" stroke="#38bdf8" stroke-width="8"/>
-                    <path d="M100,120 Q120,150 100,180" stroke="#38bdf8" stroke-width="12" fill="none"/>
-                    <circle cx="140" cy="150" r="20" fill="#f59e0b"/>
-                    <rect x="290" y="140" width="80" height="20" rx="6" fill="#6366f1"/>
-                </svg>`,
-                markers: [
-                    { id: 1, top: "50%", left: "35%", name: "Cornea & Lens", desc: "Refracts light rays through pupil onto retina." },
-                    { id: 2, top: "50%", left: "70%", name: "Retina", desc: "Nervous inner tunic containing photoreceptor rods (night) and cones (color)." },
-                    { id: 3, top: "50%", left: "88%", name: "Optic Nerve (CN II)", desc: "Transmits visual action potentials from retina to occipital lobe." }
-                ]
-            },
-            ear: {
-                strand: "Strand 7",
-                title: "Ear Cavities & Auditory Ossicles",
-                tip: "Auditory Ossicles sequence: Malleus (hammer) -> Incus (anvil) -> Stapes (stirrup).",
-                svg: `<svg viewBox="0 0 400 300" class="w-full max-h-[360px]">
-                    <rect width="400" height="300" fill="#0f172a"/>
-                    <path d="M40,150 Q100,100 140,150 Q100,200 40,150 Z" fill="#334155"/>
-                    <line x1="140" y1="110" x2="140" y2="190" stroke="#f43f5e" stroke-width="4"/>
-                    <circle cx="200" cy="150" r="15" fill="#f59e0b"/>
-                    <path d="M250,150 Q280,120 300,150 Q280,180 250,150 Z" fill="#38bdf8"/>
-                </svg>`,
-                markers: [
-                    { id: 1, top: "50%", left: "35%", name: "Tympanic Membrane & Ossicles", desc: "Vibrates malleus, incus, and stapes across middle ear cavity." },
-                    { id: 2, top: "50%", left: "70%", name: "Cochlea & Organ of Corti", desc: "Fluid-filled inner ear structure converting vibrations into auditory nerve impulses." }
-                ]
-            },
-            endocrine: {
-                strand: "Strand 8",
-                title: "Major Endocrine Glands",
-                tip: "Pituitary gland sits in hypophyseal fossa (Sella Turcica); Adrenal atop kidneys; Pancreas in LUQ.",
-                svg: `<svg viewBox="0 0 400 300" class="w-full max-h-[360px]">
-                    <rect width="400" height="300" fill="#0f172a"/>
-                    <circle cx="200" cy="50" r="10" fill="#6366f1"/>
-                    <path d="M180,90 L220,90 L200,110 Z" fill="#f43f5e"/>
-                    <rect x="150" y="160" width="30" height="20" rx="4" fill="#10b981"/>
-                    <rect x="220" y="160" width="30" height="20" rx="4" fill="#10b981"/>
-                    <rect x="170" y="210" width="60" height="15" rx="4" fill="#f59e0b"/>
-                </svg>`,
-                markers: [
-                    { id: 1, top: "16%", left: "50%", name: "Pituitary Gland (Hypophysis)", desc: "Sits in Sella Turcica; secretes HGH, TSH, ACTH, ADH, and Oxytocin." },
-                    { id: 2, top: "32%", left: "50%", name: "Thyroid Gland", desc: "Inferior to larynx; secretes T3 and T4 regulating cell metabolic rate." },
-                    { id: 3, top: "54%", left: "42%", name: "Adrenal Glands", desc: "Atop kidneys; Cortex secretes Cortisol; Medulla secretes Epinephrine." },
-                    { id: 4, top: "70%", left: "50%", name: "Pancreas (Islets)", desc: "Beta cells secrete Insulin (lowers blood sugar); Alpha cells secrete Glucagon." }
-                ]
-            },
-            heart: {
-                strand: "Strand 11",
-                title: "Heart Chambers & Blood Flow",
-                tip: "Deoxygenated blood enters Right Atrium via Vena Cava -> Tricuspid -> R Ventricle.",
-                svg: `<svg viewBox="0 0 400 300" class="w-full max-h-[360px]">
-                    <rect width="400" height="300" fill="#0f172a"/>
-                    <path d="M200,260 L110,150 Q80,100 130,70 Q170,50 200,100 Q230,50 270,70 Q320,100 290,150 Z" fill="#1e293b" stroke="#f43f5e" stroke-width="6"/>
-                    <line x1="200" y1="100" x2="200" y2="250" stroke="#334155" stroke-width="4"/>
-                    <line x1="110" y1="150" x2="290" y2="150" stroke="#334155" stroke-width="4"/>
-                </svg>`,
-                markers: [
-                    { id: 1, top: "35%", left: "38%", name: "Right Atrium & SA Node", desc: "Receives deoxygenated blood; contains SA Node (pacemaker)." },
-                    { id: 2, top: "65%", left: "38%", name: "Right Ventricle", desc: "Pumps deoxygenated blood through Pulmonary Semilunar Valve to lungs." },
-                    { id: 3, top: "35%", left: "62%", name: "Left Atrium", desc: "Receives oxygenated blood from pulmonary veins." },
-                    { id: 4, top: "65%", left: "62%", name: "Left Ventricle & Myocardium", desc: "Thickest muscular chamber; pumps oxygenated blood out Aorta to body." }
-                ]
-            },
-            respiratory: {
-                strand: "Strand 12",
-                title: "Respiratory Airway Tract",
-                tip: "Pathway: Nose -> Pharynx -> Larynx -> Trachea -> Bronchi -> Bronchioles -> Alveoli.",
-                svg: `<svg viewBox="0 0 400 300" class="w-full max-h-[360px]">
-                    <rect width="400" height="300" fill="#0f172a"/>
-                    <rect x="185" y="40" width="30" height="100" rx="6" fill="#38bdf8"/>
-                    <ellipse cx="130" cy="200" rx="45" ry="60" fill="#6366f1" opacity="0.8"/>
-                    <ellipse cx="270" cy="200" rx="45" ry="60" fill="#6366f1" opacity="0.8"/>
-                </svg>`,
-                markers: [
-                    { id: 1, top: "20%", left: "50%", name: "Larynx & Epiglottis", desc: "Voice box containing vocal cords; Epiglottis flap prevents aspiration." },
-                    { id: 2, top: "38%", left: "50%", name: "Trachea & Primary Bronchi", desc: "Windpipe reinforced with cartilage rings leading into right/left lungs." },
-                    { id: 3, top: "68%", left: "68%", name: "Alveoli (Air Sacs)", desc: "Microscopic sites of external gas exchange between air and capillary blood." }
-                ]
-            },
-            digestive: {
-                strand: "Strand 13",
-                title: "Digestive Tract & Accessory Organs",
-                tip: "Alimentary canal = continuous GI tube; Accessory = Liver, Gallbladder, Pancreas, Salivary glands.",
-                svg: `<svg viewBox="0 0 400 300" class="w-full max-h-[360px]">
-                    <rect width="400" height="300" fill="#0f172a"/>
-                    <path d="M120,100 L200,80 L200,140 Z" fill="#f43f5e"/>
-                    <ellipse cx="240" cy="110" rx="30" ry="20" fill="#6366f1"/>
-                    <rect x="150" y="160" width="100" height="80" rx="15" fill="#10b981" opacity="0.8"/>
-                </svg>`,
-                markers: [
-                    { id: 1, top: "35%", left: "40%", name: "Liver & Gallbladder", desc: "Liver produces bile; Gallbladder stores bile for fat emulsification." },
-                    { id: 2, top: "35%", left: "60%", name: "Stomach", desc: "Parietal cells secrete HCl; Chief cells secrete Pepsinogen to digest proteins." },
-                    { id: 3, top: "65%", left: "50%", name: "Small & Large Intestines", desc: "Small intestine absorbs nutrients; Large intestine absorbs water." }
-                ]
-            },
-            nephron: {
-                strand: "Strand 14",
-                title: "Nephron Microanatomy",
-                tip: "Filtration occurs in Glomerulus; Reabsorption in Proximal Tubule & Loop of Henle; Secretion in Distal Tubule.",
-                svg: `<svg viewBox="0 0 400 300" class="w-full max-h-[360px]">
-                    <rect width="400" height="300" fill="#0f172a"/>
-                    <circle cx="100" cy="100" r="25" fill="#f43f5e"/>
-                    <path d="M125,100 Q200,50 220,150 Q240,250 260,150 Q280,50 320,100" fill="none" stroke="#f59e0b" stroke-width="8"/>
-                </svg>`,
-                markers: [
-                    { id: 1, top: "32%", left: "25%", name: "Glomerulus & Bowman's Capsule", desc: "Site of Glomerular Filtration under blood pressure." },
-                    { id: 2, top: "30%", left: "50%", name: "Proximal Convoluted Tubule", desc: "Site of bulk Tubular Reabsorption (glucose, amino acids, water)." },
-                    { id: 3, top: "70%", left: "65%", name: "Loop of Henle (Nephron Loop)", desc: "Descending limb reabsorbs water; Ascending limb reabsorbs salts." },
-                    { id: 4, top: "32%", left: "80%", name: "Distal Tubule & Collecting Duct", desc: "Target of ADH; Tubular Secretion occurs here to form final urine." }
-                ]
-            },
-            uterus: {
-                strand: "Strand 15",
-                title: "Female Reproductive System",
-                tip: "Stratum functionalis layer of endometrium sheds during menses; Stratum basalis regenerates it.",
-                svg: `<svg viewBox="0 0 400 300" class="w-full max-h-[360px]">
-                    <rect width="400" height="300" fill="#0f172a"/>
-                    <path d="M200,220 L150,120 Q120,80 200,80 Q280,80 250,120 Z" fill="#6366f1" opacity="0.8"/>
-                    <circle cx="100" cy="100" r="15" fill="#f43f5e"/>
-                    <circle cx="300" cy="100" r="15" fill="#f43f5e"/>
-                </svg>`,
-                markers: [
-                    { id: 1, top: "32%", left: "25%", name: "Ovary & Fallopian Tube Ampulla", desc: "Ovary produces oocytes; Ampulla of Fallopian tube is primary site of fertilization." },
-                    { id: 2, top: "45%", left: "50%", name: "Uterus (Myometrium & Endometrium)", desc: "Myometrium contracts during labor; Endometrium functionalis layer sheds during menses." }
+                    { id: 1, top: "30%", left: "45%", name: "Cerebrum", desc: "Largest brain region responsible for voluntary thought, sensory interpretation, and reasoning." },
+                    { id: 2, top: "70%", left: "70%", name: "Cerebellum", desc: "Posterior brain region regulating motor coordination, posture, and balance." },
+                    { id: 3, top: "75%", left: "50%", name: "Brain Stem (Medulla Oblongata)", desc: "Controls vital heart rate, blood pressure, and breathing centers." }
                 ]
             }
         };
@@ -891,7 +674,7 @@
             renderDictionary();
         }
 
-        // FULL SYSTEM VECTOR DIAGRAM LABELLER LOGIC
+        // IMAGE DIAGRAM LABELLER LOGIC
         function loadDiagram() {
             const key = document.getElementById('diagramSelect').value;
             const data = diagramData[key];
@@ -903,8 +686,8 @@
 
             const canvas = document.getElementById('diagramCanvas');
             canvas.innerHTML = `
-                <div class="w-full flex items-center justify-center p-2">
-                    ${data.svg}
+                <div class="relative w-full h-full flex items-center justify-center p-2">
+                    <img src="${data.imgSrc}" alt="${data.altText}" class="max-h-[380px] w-auto max-w-full object-contain rounded-lg shadow-md" />
                 </div>
                 <div class="absolute top-3 left-3 bg-slate-900/90 backdrop-blur px-3 py-1.5 rounded-full text-xs font-bold text-indigo-300 border border-slate-700 shadow-md">${data.title}</div>
             `;
